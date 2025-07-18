@@ -1,7 +1,10 @@
-# Discord-API-Stuffs
+# Discord API Stuffs
 
 Basically when im bored (which... is alot) i sometimes js do random shi- stuff and look at my network console thing and see what happens so this is basically that (nice..).
-Also this isnt really anything advanced (imo atleast), short tutorial: open up google console (or dev tools idk the official name call it wtv) using Ctrl + Shift + I (incase you didnt know) and go to the network tab (if it doesnt show up press the double arrow to add it) and just do something, like making a channel.
+
+Also this isnt really anything advanced (imo atleast), short tutorial: open up google console (or dev tools idk the official name, call it wtv) using Ctrl + Shift + I (incase you didnt know) and go to the network tab (if it doesnt show up press the double arrow to add it) and just do something, like making a channel.
+
+FYI: dont mind the text being red, it's just markdown being mad frfr..
 
 ### Channels
 ```json
@@ -22,3 +25,17 @@ Also this isnt really anything advanced (imo atleast), short tutorial: open up g
 
 API Endpoint: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels
 
+### Creating Server
+```json
+{
+  "name": "<your server name>"
+  "icon": "data:image/png;base64, <image in b64 format>"
+  "guild_template_code": "2TffvPucqHkN" // i think there's only 1
+  "channels": []
+  "system_channel_id": "<so the channel id for the joins/nitro boost thingy>" // not modifiable
+}
+```
+
+API Endpoint: https://canary.discord.com/api/v9/guilds
+
+bonus: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/delete
