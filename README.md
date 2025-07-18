@@ -18,8 +18,10 @@ FYI: dont mind the text being red, it's just markdown being mad frfr..
 
 0 = text channel,
 2 = voice channel,
+4 = category (cannot have a parent_id),
 5 = announcement channel,
 13 = stage channel,
+14 = Discord Store Channel, you need a SKU ID and since i do not have 1 or can't create 1 either i can't test it, 
 15 = forum channel,
 16 = media channel
 
