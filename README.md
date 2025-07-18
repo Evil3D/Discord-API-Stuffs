@@ -20,9 +20,10 @@ FYI: dont mind the text being red, it's just markdown being mad frfr..
 2 = voice channel,
 4 = category (cannot have a parent_id),
 5 = announcement channel,
+6 = Discord Store Channel, you need a SKU ID and since i do not have 1 or can't create 1 either i can't test it, 
 13 = stage channel,
-14 = Discord Store Channel, you need a SKU ID and since i do not have 1 or can't create 1 either i can't test it, 
 15 = forum channel,
+14 = Unknown, but considered valid by discord,
 16 = media channel
 
 API Endpoint: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels
