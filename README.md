@@ -9,6 +9,7 @@ FYI: dont mind the text being red, it's just markdown being mad frfr..
 FYI 2: all endpoints will be from canary, since im that cool yea.. yea...
 
 ### Channels
+#### Creation
 ```json
 {
   "name": "<your channel name>",
@@ -29,6 +30,30 @@ FYI 2: all endpoints will be from canary, since im that cool yea.. yea...
 16 = media channel
 
 API Endpoint: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels
+
+#### Editing
+```json
+{
+  "id": "<channel_id>",
+  "type": <list above>,
+  "last_message_id": "<im guessing this is optional>",
+  "flags": 0,
+  "guild_id": "<well guild id>",
+  "name": "<name>",
+  "parent_id": "<category_id>",
+  "rate_limit_per_user": 0,
+  "topic": "",
+  "position": 0,
+  "permission_overwrites": [],
+  "nsfw": false,
+  "icon_emoji": {
+    "id": null,
+    "name": "👋(this is the default)"
+  },
+  "theme_color": null // idek what this is
+}
+```
+API Endpoint: https://canary.discord.com/api/v9/channels/<CHANNEL_ID>
 
 ### Creating Server
 ```json
