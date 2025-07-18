@@ -12,10 +12,19 @@ FYI 2: all endpoints will be from canary, since im that cool yea.. yea...
 #### Creation
 ```json
 {
-  "name": "<your channel name>",
-  "parent_id": "<category ID if any>",
-  "permission_overwrites": [],
-  "type": <list below> // Ignore the red, markdown's just mad.
+  "name": "<name>",
+  "parent_id": "<category_id>",
+  "type": <types below>,
+  "topic": "",
+  "icon_emoji": {
+    "id": null,
+    "name": "👋"
+  },
+  "bitrate": 64000,
+  "user_limit": <1-99>,
+  "nsfw": false,
+  "flags": 4295063878, //these are all of the flags possible for a channel (almost all)
+  "rate_limit_per_user": <0-21600, in seconds>
 }
 ```
 
@@ -53,6 +62,8 @@ API Endpoint: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels
   "theme_color": null // idek what this is
 }
 ```
+#### THE EDITING DOES NOT WORK AS FAR AS I KNOW. (i use bot tokens to test, not self-botting, also dont self-bot, it's against the TOS and mostly unethical)
+
 API Endpoint: https://canary.discord.com/api/v9/channels/<CHANNEL_ID>
 
 ### Creating Server
