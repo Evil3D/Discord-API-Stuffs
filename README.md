@@ -6,6 +6,8 @@ Also this isnt really anything advanced (imo atleast), short tutorial: open up g
 
 FYI: dont mind the text being red, it's just markdown being mad frfr..
 
+FYI 2: all endpoints will be from canary, since im that cool yea.. yea...
+
 ### Channels
 ```json
 {
@@ -31,11 +33,11 @@ API Endpoint: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels
 ### Creating Server
 ```json
 {
-  "name": "<your server name>"
-  "icon": "data:image/png;base64, <image in b64 format>"
-  "guild_template_code": "2TffvPucqHkN" // default, if none selected
-  "channels": []
-  "system_channel_id": "<so the channel id for the joins/nitro boost thingy>" // not modifiable
+  "name": "<your server name>",
+  "icon": "data:image/png;base64, <image in b64 format>", set to null if none.
+  "guild_template_code": "2TffvPucqHkN", // default, if none selected
+  "channels": [],
+  "system_channel_id": "<so the channel id for the joins/nitro boost thingy>" // not modifiable, set to null, otherwise might error.
 }
 ```
 
