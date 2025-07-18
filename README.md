@@ -33,7 +33,7 @@ API Endpoint: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels
 {
   "name": "<your server name>"
   "icon": "data:image/png;base64, <image in b64 format>"
-  "guild_template_code": "2TffvPucqHkN" // i think there's only 1
+  "guild_template_code": "2TffvPucqHkN" // default, if none selected
   "channels": []
   "system_channel_id": "<so the channel id for the joins/nitro boost thingy>" // not modifiable
 }
