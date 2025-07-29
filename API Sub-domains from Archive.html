@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Wayback Viewer – Discord Snapshots</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background: #111;
+      color: #eee;
+    }
+    h1 {
+      color: #7289da;
+    }
+    summary {
+      cursor: pointer;
+      margin: 5px 0;
+    }
+    .url {
+      font-size: 0.9em;
+      margin-left: 20px;
+      color: #ccc;
+      word-break: break-all;
+    }
+  </style>
+</head>
+<body>
+  <h1>Wayback Archive Viewer for discord.com</h1>
+  <p>Grouping by URL path (up to 3 segments)...</p>
+  <div id="results">Loading...</div>
+
+  <script>
+    const API = 'https://web.archive.org/web/timemap/json?url=discord.com/&fl=timestamp:4,original,urlkey&matchType=prefix&filter=statuscode:200&filter=mimetype:text/html&collapse=urlkey&collapse=timestamp:4&limit=10000';
+
+    async function fetchSnapshots() {
+      const res = await fetch(API);
+      const json = await res.json();
+      const data = json.slice(1); // Skip the header row
+
+      const grouped = {};
+
+      for (const [timestamp, url] of data) {
+        try {
+          const u = new URL(url);
+          const path = u.pathname.split('/').slice(1, 4).join('/') || 'root';
+          if (!grouped[path]) grouped[path] = [];
+          grouped[path].push(url);
+        } catch (e) {
+          console.warn('Invalid URL:', url);
+        }
+      }
+
+      return grouped;
+    }
+
+    function render(grouped) {
+      const container = document.getElementById('results');
+      container.innerHTML = '';
+
+      const paths = Object.keys(grouped).sort((a, b) => a.localeCompare(b));
+
+      for (const path of paths) {
+        const urls = grouped[path];
+        const detail = document.createElement('details');
+        const summary = document.createElement('summary');
+        summary.textContent = `${path} (${urls.length})`;
+        detail.appendChild(summary);
+
+        urls.forEach(u => {
+          const div = document.createElement('div');
+          div.className = 'url';
+          div.textContent = u;
+          detail.appendChild(div);
+        });
+
+        container.appendChild(detail);
+      }
+    }
+
+    fetchSnapshots()
+      .then(render)
+      .catch(err => {
+        document.getElementById('results').textContent = 'Error loading data.';
+        console.error(err);
+      });
+  </script>
+</body>
+</html>
