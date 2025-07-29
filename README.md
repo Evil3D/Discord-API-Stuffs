@@ -108,7 +108,8 @@ API Endpoint: https://discord.com/api/v9/unique-username/username-attempt-unauth
 
 API Endpoint: https://discord.com/api/v9/auth/register
 
-### Account Verify
+### Account
+#### Verify
 ```json
 {
   "token": "<i also have no idea how to get this>"
@@ -116,6 +117,28 @@ API Endpoint: https://discord.com/api/v9/auth/register
 ```
 
 API Endpoint: https://discord.com/api/v9/auth/verify
+
+#### Login
+```json
+{
+  "login": "<email>",
+  "password": "<password>",
+  "undelete": false, //idk what this is, would be useful if u can undelete u r account js with that though
+  "login_source": null,
+  "gift_code_sku_id": null
+}
+```
+
+API Endpoint: https://canary.discord.com/api/v9/auth/login
+
+#### Forgot Pass
+```json
+{
+  "login": "<email>"
+}
+```
+
+https://canary.discord.com/api/v9/auth/forgot
 
 ### Set Hypesquad Badge
 ```json
@@ -138,3 +161,4 @@ API Endpoint: https://canary.discord.com/api/v9/hypesquad/online
 ```
 
 API Endpoint: https://canary.discord.com/api/v9/quests/<Quest_ID>/video-progress
+
