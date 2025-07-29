@@ -6,7 +6,7 @@ Also this isnt really anything advanced (imo atleast), short tutorial: open up g
 
 FYI: dont mind the text being red, it's just markdown being mad frfr..
 
-FYI 2: all endpoints will be from canary, since im that cool yea.. yea...
+FYI 2: most endpoints will be from canary, since im that cool yea.. yea...
 
 ### Channels
 #### Creation
@@ -80,3 +80,12 @@ API Endpoint: https://canary.discord.com/api/v9/channels/<CHANNEL_ID>
 API Endpoint: https://canary.discord.com/api/v9/guilds
 
 bonus: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/delete
+
+### Checking username availability
+```json
+{
+  "username": "<username to check>"
+}
+```
+
+API Endpoint: https://discord.com/api/v9/unique-username/username-attempt-unauthed
