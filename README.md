@@ -124,6 +124,10 @@ API Endpoint: https://discord.com/api/v9/auth/verify
 }
 ```
 
+1 = Bravery (Purple)
+2 = Brilliance (Red)
+3 = Balance (Cyan-ish)
+
 API Endpoint: https://canary.discord.com/api/v9/hypesquad/online
 
 ### Skip Video Quest
@@ -134,5 +138,3 @@ API Endpoint: https://canary.discord.com/api/v9/hypesquad/online
 ```
 
 API Endpoint: https://canary.discord.com/api/v9/quests/<Quest_ID>/video-progress
-
-API Endpoint: https://canary.discord.com/api/v9/hypesquad/online
