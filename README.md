@@ -125,3 +125,14 @@ API Endpoint: https://discord.com/api/v9/auth/verify
 ```
 
 API Endpoint: https://canary.discord.com/api/v9/hypesquad/online
+
+### Skip Video Quest
+```json
+{
+  "timestamp": <in second, could maybe set it to 999 and prob would work, havent tried>
+}
+```
+
+API Endpoint: https://canary.discord.com/api/v9/quests/<Quest_ID>/video-progress
+
+API Endpoint: https://canary.discord.com/api/v9/hypesquad/online
