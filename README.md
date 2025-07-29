@@ -116,3 +116,12 @@ API Endpoint: https://discord.com/api/v9/auth/register
 ```
 
 API Endpoint: https://discord.com/api/v9/auth/verify
+
+### Set Hypesquad Badge
+```json
+{
+  "house_id": <list below>
+}
+```
+
+API Endpoint: https://canary.discord.com/api/v9/hypesquad/online
