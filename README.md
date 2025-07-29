@@ -89,3 +89,30 @@ bonus: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/delete
 ```
 
 API Endpoint: https://discord.com/api/v9/unique-username/username-attempt-unauthed
+
+### Creating Account
+```json
+{
+  "fingerprint": "", //  have no idea how to get it, im guessing it's from the captcha or something idk
+  "email": "<email>",
+  "username": "<username>",
+  "global_name": "<display_name>",
+  "password": "<password>",
+  "invite": null, // idk the format for these
+  "consent": true,
+  "date_of_birth": "<dob, in this format: yyyy-mm-dd",
+  "gift_code_sku_id": null,
+  "promotional_email_opt_in": false
+}
+```
+
+API Endpoint: https://discord.com/api/v9/auth/register
+
+### Account Verify
+```json
+{
+  "token": "<i also have no idea how to get this>"
+}
+```
+
+API Endpoint: https://discord.com/api/v9/auth/verify
