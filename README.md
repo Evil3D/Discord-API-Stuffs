@@ -162,3 +162,13 @@ API Endpoint: https://canary.discord.com/api/v9/hypesquad/online
 
 API Endpoint: https://canary.discord.com/api/v9/quests/<Quest_ID>/video-progress
 
+### Create Group DM
+```json
+{
+  "recipients": [[<user-1>], [<user-2>]]
+}
+```
+
+FYI: u can leave the recipients empty to make a empty group dm with just you.
+
+API Endpoint: https://canary.discord.com/api/v9/users/@me/channels
