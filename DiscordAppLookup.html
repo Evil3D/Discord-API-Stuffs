@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Discord Application ID Finder</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #1e1f22;
+            color: #dcddde;
+        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #2e3338; }
+        ::-webkit-scrollbar-thumb { background: #4f545c; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #5c626b; }
+        .id-item:hover { background-color: #393c43; }
+        .control-btn {
+            background-color: #404249;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .control-btn:hover { background-color: #4f545c; }
+        .control-btn:active { transform: scale(0.95); }
+        .exclude-btn-active {
+            background-color: #2d7d46; /* Green when active */
+            color: white;
+        }
+        .exclude-btn-active:hover { background-color: #399254; }
+
+        /* Styles for the bot tags and user info */
+        .botTag__5d473 {
+            display: inline-flex;
+            align-items: center;
+            border-radius: 3px;
+            padding: 2px 4px;
+            font-size: 10px;
+            font-weight: 500;
+            line-height: 12px;
+            text-transform: uppercase;
+            color: #dcddde;
+            background-color: #5865f2; /* Discord blue */
+            margin-left: 8px;
+        }
+        .botTagVerified__82f07 {
+            margin-right: 4px;
+            width: 14px;
+            height: 14px;
+            vertical-align: middle;
+        }
+        .botText__82f07 {
+            vertical-align: middle;
+        }
+        .staff-badge {
+            width: 16px;
+            height: 16px;
+            margin-left: 4px;
+            vertical-align: middle;
+        }
+        .user-info-container {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 5px;
+            font-size: 0.9em;
+            color: #c9c9c9;
+        }
+        .user-avatar {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            object-fit: cover; /* Ensures the image covers the area without distortion */
+        }
+
+        /* Global Error Popup Styles */
+        #global-error-popup {
+            top: -50px; /* Hidden above the screen */
+            transform: translateX(-50%);
+            background-color: #b22222; /* Darker red for cooldown */
+            transition: all 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for color */
+        }
+        #global-error-popup.show {
+            top: 20px; /* Visible position */
+        }
+        #global-error-popup.ready {
+            background-color: #2d7d46; /* Green for ready state */
+        }
+
+        /* Modal Styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+        .modal-content {
+            background-color: #2b2d31;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+            position: relative; /* For close button positioning */
+        }
+        .modal-button {
+            display: block;
+            width: 100%;
+            padding: 12px 20px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background-color 0.2s, transform 0.1s;
+        }
+        .modal-button:last-child {
+            margin-bottom: 0;
+        }
+        .modal-button.blue {
+            background-color: #5865f2;
+            color: white;
+        }
+        .modal-button.blue:hover {
+            background-color: #4752c4;
+            transform: scale(1.02);
+        }
+        .modal-button.red {
+            background-color: #ed4245;
+            color: white;
+        }
+        .modal-button.red:hover {
+            background-color: #d33538;
+            transform: scale(1.02);
+        }
+        .modal-close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: none;
+            border: none;
+            color: #dcddde;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+
+    <div id="global-error-popup" class="fixed top-[-50px] left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg transition-all duration-300 z-50">
+        </div>
+
+    <div id="fetch-options-modal" class="modal-overlay hidden">
+        <div class="modal-content relative">
+            <button class="modal-close-btn" id="close-fetch-modal-btn">&times;</button>
+            <h2 class="text-xl font-bold mb-6 text-white">Choose Fetch Type</h2>
+            <div id="fetch-apps-warning" class="text-red-400 text-sm mb-4 hidden">
+                Are you sure? This could potentially crash your browser or this tab. Click again to run anyway.
+            </div>
+            <button id="fetch-activities-modal-btn" class="modal-button blue">Fetch Activities</button>
+            <button id="fetch-apps-modal-btn" class="modal-button red">Fetch Applications</button>
+        </div>
+    </div>
+
+    <div id="dev-settings-modal" class="modal-overlay hidden">
+        <div class="modal-content relative">
+            <button class="modal-close-btn" id="close-dev-modal-btn">&times;</button>
+            <h2 class="text-xl font-bold mb-6 text-white">Developer Settings</h2>
+            <button id="auto-cache-btn" class="modal-button blue">Start Auto-Cache</button>
+            <button id="download-cache-btn" class="modal-button blue">Download Cache</button>
+        </div>
+    </div>
+
+    <div class="w-full max-w-5xl h-[90vh] bg-[#2b2d31] rounded-xl shadow-2xl flex flex-col p-6">
+        <header class="pb-4 border-b border-gray-700">
+            <h1 class="text-2xl font-bold text-white">Discord Application ID Finder</h1>
+            <p class="text-sm text-gray-400">Fetches and displays application IDs from the Wayback Machine.</p>
+        </header>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 py-4">
+            <input type="text" id="search-bar" placeholder="🔍 Search for an ID..." class="w-full bg-[#1e1f22] border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition">
+            <div class="grid grid-cols-2 lg:grid-cols-5 gap-2">
+                 <button id="fetch-button" class="w-full h-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-lg transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500">Fetch</button>
+                 <button id="exclude-known-button" class="w-full h-full control-btn text-white font-semibold py-2 px-4 rounded-lg">Exclude Known</button>
+                 <button id="copy-ids-button" class="w-full h-full control-btn text-white font-semibold py-2 px-4 rounded-lg">Copy IDs</button>
+                 <button id="copy-invites-button" class="w-full h-full control-btn text-white font-semibold py-2 px-4 rounded-lg">Copy Invites</button>
+                 <div id="developer-settings-container" class="w-full h-full hidden">
+                    <button id="developer-settings-button" class="w-full h-full control-btn text-white font-semibold py-2 px-4 rounded-lg text-sm">Developer Settings</button>
+                 </div>
+            </div>
+        </div>
+
+        <div class="flex-grow flex flex-col overflow-hidden">
+            <div id="status-area" class="py-2 text-gray-400 text-center">
+                Click "Fetch" to start.
+            </div>
+            <ul id="results-list" class="flex-grow overflow-y-auto space-y-1 pr-2">
+                </ul>
+        </div>
+    </div>
+
+    <script>
+        const fetchButton = document.getElementById('fetch-button');
+        const searchBar = document.getElementById('search-bar');
+        const resultsList = document.getElementById('results-list');
+        const statusArea = document.getElementById('status-area');
+        const excludeKnownButton = document.getElementById('exclude-known-button');
+        const copyIdsButton = document.getElementById('copy-ids-button');
+        const copyInvitesButton = document.getElementById('copy-invites-button');
+        const developerSettingsButton = document.getElementById('developer-settings-button');
+        const developerSettingsContainer = document.getElementById('developer-settings-container'); // New container
+        const globalErrorPopup = document.getElementById('global-error-popup');
+
+        // Fetch Options Modal elements
+        const fetchOptionsModal = document.getElementById('fetch-options-modal');
+        const closeFetchModalBtn = document.getElementById('close-fetch-modal-btn');
+        const fetchActivitiesModalBtn = document.getElementById('fetch-activities-modal-btn');
+        const fetchAppsModalBtn = document.getElementById('fetch-apps-modal-btn');
+        const fetchAppsWarning = document.getElementById('fetch-apps-warning');
+
+        // Developer Settings Modal elements
+        const devSettingsModal = document.getElementById('dev-settings-modal');
+        const closeDevModalBtn = document.getElementById('close-dev-modal-btn');
+        const autoCacheBtn = document.getElementById('auto-cache-btn');
+        const downloadCacheBtn = document.getElementById('download-cache-btn');
+
+        let allFoundActivityIds = new Set(); // Stores IDs from 'Fetch Activities'
+        let allFoundAppIds = new Set();      // Stores IDs from 'Fetch Applications'
+        let currentVisibleIds = []; // The combined, filtered list currently displayed
+
+        let knownIds = new Set();
+        let isExcludingKnown = false;
+        let userLookupCache = new Map(); // Caches lookup results (ID -> Data)
+        
+        let canLookup = true; // Global flag for lookup cooldown for single lookups
+        let lookupCooldownEndTime = 0; // Timestamp when cooldown ends
+        let cooldownCountdownInterval = null; // To store the interval ID for countdown
+
+        let fetchAppsDoubleCheckTimer = null; // Timer for "Fetch Applications" double click
+        const FETCH_APPS_DOUBLE_CLICK_TIMEOUT = 3000; // 3 seconds for double click
+
+        let autoCacheInterval = null;
+        let autoCacheIndex = 0;
+        let isAutoCaching = false;
+
+        const GITHUB_URL = "https://raw.githubusercontent.com/Delitefully/DiscordLists/master/activities.md";
+        const INITIAL_CACHE_URL = "https://raw.githubusercontent.com/Evil3D/Discord-API-Stuffs/refs/heads/main/Lookup_Cache.json";
+        const CORS_PROXY = 'https://corsproxy.io/?';
+
+        // API Endpoints - Ordered by preference
+        const LOOKUP_APIS = [
+            { name: "BotGhost", url: 'https://dashboard.botghost.com/api/public/tools/user_lookup/', timeout: 10000, cooldown: 5000 },
+            { name: "SCNX", url: 'https://scnx.app/api/users/', timeout: 10000, cooldown: 30000 }, // SCNX has 2 per minute, so 30s cooldown
+            { name: "Deno", url: 'https://discord-lookup.deno.dev/', timeout: 5000, cooldown: 0 } // Deno seems to have no rate limit, setting to 0
+        ];
+        
+        // Map to store last successful lookup time for each API
+        const apiLastLookupTime = new Map(LOOKUP_APIS.map(api => [api.name, 0]));
+
+
+        const STAFF_BADGE_URL = 'https://cdn.discordapp.com/badge-icons/5e74e9b61934fc1f67c65515d1f7e60d.png';
+        const GLOBAL_COOLDOWN_DURATION = 5000; // 5 seconds in milliseconds (primarily for BotGhost, but used as base)
+
+        // Constants for Fetch Applications (from Python script)
+        const WAYBACK_API_BASE = "https://web.archive.org/web/timemap/json";
+        const TARGET_URL_APP_INVITES = "https://discord.com/api/oauth2/authorize";
+        const API_PARAMS_COMMON_APP_INVITES = "matchType=prefix&collapse=urlkey&output=json&fl=original,mimetype,timestamp,endtimestamp,groupcount,uniqcount&filter=!statuscode:[45]..";
+        const API_PAGE_LIMIT_APP_INVITES = 10000; // Large limit per page, as in Python
+        const REQUEST_TIMEOUT_APP_INVITES = 30000; // 30 seconds timeout for HTTP requests (JS uses ms)
+
+        // --- Cache Initialization on Load ---
+        async function initializeCache() {
+            try {
+                const response = await fetch(CORS_PROXY + encodeURIComponent(INITIAL_CACHE_URL));
+                if (!response.ok) {
+                    console.warn(`Could not load initial cache from GitHub: HTTP status ${response.status}`);
+                    return;
+                }
+                const cachedData = await response.json();
+                for (const id in cachedData) {
+                    if (Object.hasOwnProperty.call(cachedData, id)) {
+                        userLookupCache.set(id, cachedData[id]);
+                    }
+                }
+                console.log(`Successfully loaded ${userLookupCache.size} entries from initial cache.`);
+                statusArea.textContent = `Loaded ${userLookupCache.size} cached IDs from GitHub.`;
+            } catch (error) {
+                console.error('Error loading initial cache:', error);
+                statusArea.textContent = `Error loading initial cache: ${error.message}`;
+            }
+        }
+
+        // --- Developer Mode Check ---
+        function checkDevMode() {
+            // Check for window.Dev or window.dev for flexibility
+            if (window.Dev === true || window.dev === true) {
+                developerSettingsContainer.classList.remove('hidden'); // Show the container
+            } else {
+                developerSettingsContainer.classList.add('hidden'); // Hide the container
+            }
+        }
+
+        // Check dev mode on load and periodically
+        window.addEventListener('load', () => {
+            initializeCache(); // Load initial cache when the page loads
+            checkDevMode();
+        });
+        // Periodically check in case user types Dev = true in console after load
+        setInterval(checkDevMode, 1000); // Check every second
+
+        // --- Main Data Fetching and Processing ---
+
+        async function fetchActivityData() {
+            setUiState('loading', '⏳ Fetching up to 40,000 activity records...');
+            const targetPattern = 'discord.com/api/v9/application-directory-static/applications/';
+            const waybackUrl = `https://web.archive.org/cdx/search/cdx?url=${targetPattern}&output=json&fl=original&limit=40000&matchType=prefix&filter=statuscode:200`;
+            const apiUrl = CORS_PROXY + encodeURIComponent(waybackUrl);
+
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
+                const data = await response.json();
+
+                if (!data || data.length <= 1) {
+                    setUiState('idle', 'No activity results found for the given pattern.');
+                    return;
+                }
+                
+                statusArea.textContent = `✅ Fetched ${data.length - 1} activity records. Now filtering...`;
+                
+                // Clear previous activity IDs if re-fetching
+                allFoundActivityIds.clear(); 
+                for (let i = 1; i < data.length; i++) {
+                    const url = data[i][0];
+                    if (!url) continue;
+                    const filterPattern = 'application-directory-static/applications/';
+                    const startIndex = url.indexOf(filterPattern);
+                    if (startIndex > -1) {
+                        const restOfUrl = url.substring(startIndex + filterPattern.length);
+                        const potentialId = restOfUrl.split('/')[0].split('?')[0];
+                        if (!isNaN(potentialId) && potentialId.length >= 17 && potentialId.length <= 20) {
+                            allFoundActivityIds.add(potentialId);
+                        }
+                    }
+                }
+                updateAndDisplayResults();
+                setUiState('idle', `Found ${allFoundActivityIds.size} unique activity IDs.`);
+            } catch (error) {
+                setUiState('error', `❌ Error fetching activity data: ${error.message}.`);
+            } finally {
+                closeFetchOptionsModal();
+            }
+        }
+
+        async function fetchDiscordInvitesJs(limitCount) {
+            setUiState('loading', `🔎 Fetching up to ${limitCount} application invites... This may take a while.`);
+            closeFetchOptionsModal();
+
+            let newlyFoundInvitesCount = 0;
+            let resumeKey = null;
+
+            const encodedTargetUrl = encodeURIComponent(TARGET_URL_APP_INVITES);
+
+            try {
+                while (newlyFoundInvitesCount < limitCount) {
+                    let waybackApiUrl = `${WAYBACK_API_BASE}?url=${encodedTargetUrl}&${API_PARAMS_COMMON_APP_INVITES}&limit=${API_PAGE_LIMIT_APP_INVITES}`;
+                    if (resumeKey) {
+                        waybackApiUrl += `&resumeKey=${resumeKey}`;
+                    }
+
+                    const response = await fetch(CORS_PROXY + encodeURIComponent(waybackApiUrl), {
+                        signal: AbortSignal.timeout(REQUEST_TIMEOUT_APP_INVITES) // Timeout for fetch
+                    });
+
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status} for ${waybackApiUrl}`);
+                    }
+                    const cdxData = await response.json();
+
+                    resumeKey = response.headers.get('x-archive-wayback-cdx-remote-info');
+                    if (resumeKey) {
+                        resumeKey = resumeKey.split(';')[0].trim();
+                    }
+
+                    if (!cdxData || !Array.isArray(cdxData) || cdxData.length <= 1) {
+                        console.log("No more data or unexpected CDX format.");
+                        break; // No more data
+                    }
+
+                    const dataEntries = cdxData[0][0] === "original" ? cdxData : cdxData.slice(1); // Handle header row
+
+                    if (dataEntries.length === 0) {
+                        console.log("No entries found in this page.");
+                        break;
+                    }
+                    
+                    for (const entry of dataEntries) {
+                        if (newlyFoundInvitesCount >= limitCount) {
+                            break;
+                        }
+
+                        if (!Array.isArray(entry) || entry.length < 1) {
+                            continue;
+                        }
+
+                        const fullUrlRaw = entry[0];
+                        const fullUrlCleaned = fullUrlRaw.replace(/&amp%3B/g, "&"); // Fix &amp%3B
+
+                        const clientIdMatch = fullUrlCleaned.match(/client_id=(\d+)/);
+                        if (!clientIdMatch) {
+                            continue;
+                        }
+
+                        const botId = clientIdMatch[1];
+
+                        // Add to allFoundAppIds immediately to ensure uniqueness across current run
+                        if (!allFoundAppIds.has(botId)) {
+                             allFoundAppIds.add(botId);
+                             newlyFoundInvitesCount++;
+                             console.log(`Found App ID: ${botId}`); // Log to console for progress
+                             statusArea.textContent = `🔎 Found ${newlyFoundInvitesCount} application IDs...`;
+                        }
+                    }
+
+                    if (!resumeKey || newlyFoundInvitesCount >= limitCount) {
+                        break;
+                    }
+                }
+                updateAndDisplayResults(); // Update display with new app IDs
+                setUiState('idle', `✅ Done! Found ${allFoundAppIds.size} unique application IDs.`);
+            } catch (error) {
+                if (error.name === 'TimeoutError') {
+                    setUiState('error', `❌ Request to Wayback Machine timed out after ${REQUEST_TIMEOUT_APP_INVITES / 1000} seconds. Please try again.`);
+                } else {
+                    setUiState('error', `❌ Error fetching application data: ${error.message}.`);
+                }
+                console.error("Error in fetchDiscordInvitesJs:", error);
+            }
+        }
+
+
+        async function fetchKnownIds() {
+            if (knownIds.size > 0) return true; // Already fetched
+            
+            setUiState('loading', 'Fetching known IDs from GitHub...');
+            const apiUrl = CORS_PROXY + encodeURIComponent(GITHUB_URL);
+            try {
+                const response = await fetch(apiUrl);
+                if (!response.ok) throw new Error(`GitHub fetch failed: ${response.status}`);
+                const markdown = await response.text();
+                
+                // Regex to find IDs in the second column of a Markdown table
+                const idRegex = /^\|\s*[^|]*\s*\|\s*(\d{17,20})\s*\|/gm;
+                let match;
+                while ((match = idRegex.exec(markdown)) !== null) {
+                    knownIds.add(match[1]);
+                }
+                setUiState('idle', `Loaded ${knownIds.size} known IDs. Filtering...`);
+                return true;
+            } catch (error) {
+                setUiState('error', `❌ Error fetching known IDs: ${error.message}`);
+                return false;
+            }
+        }
+
+        // --- UI and Display Logic ---
+
+        function updateAndDisplayResults() {
+            // Combine all IDs from both sources into a single Set for uniqueness, then convert to Array and sort
+            const combinedIds = new Set([...allFoundActivityIds, ...allFoundAppIds]);
+            let filtered = Array.from(combinedIds).sort();
+
+            if (isExcludingKnown) {
+                filtered = filtered.filter(id => !knownIds.has(id));
+            }
+
+            const searchQuery = searchBar.value.toLowerCase();
+            if (searchQuery) {
+                filtered = filtered.filter(id => id.includes(searchQuery));
+            }
+            
+            currentVisibleIds = filtered;
+            renderList(currentVisibleIds);
+            statusArea.textContent = `Displaying ${currentVisibleIds.length} of ${combinedIds.size} total unique IDs.`;
+        }
+
+        function renderList(ids) {
+            resultsList.innerHTML = '';
+            if (ids.length === 0) {
+                resultsList.innerHTML = '<li class="text-center text-gray-500 p-4">No matching IDs found.</li>';
+                return;
+            }
+
+            const fragment = document.createDocumentFragment();
+            for (const id of ids) {
+                const li = document.createElement('li');
+                li.className = 'id-item flex flex-col p-2 rounded-md transition-all duration-200';
+                li.innerHTML = `
+                    <div class="flex items-center justify-between">
+                        <a href="https://discord.com/developers/applications/${id}" target="_blank" class="text-gray-300 hover:text-white hover:underline">${id}</a>
+                        <div class="flex items-center gap-2">
+                            <button class="lookup-btn p-2 rounded-md hover:bg-gray-600" data-id="${id}" title="Lookup User/Bot">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
+                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
+                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
+                                </svg>
+                            </button>
+                            <button class="copy-invite-btn p-2 rounded-md hover:bg-gray-600" data-id="${id}" title="Copy Invite Link">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
+                                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
+                                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="lookup-info-${id}" class="user-info-container hidden"></div>
+                `;
+                fragment.appendChild(li);
+
+                // If data is in cache, display it immediately
+                if (userLookupCache.has(id)) {
+                    const cachedData = userLookupCache.get(id);
+                    const infoContainer = li.querySelector(`#lookup-info-${id}`);
+                    displayLookupInfo(cachedData, infoContainer);
+                }
+            }
+            resultsList.appendChild(fragment);
+        }
+
+        function setUiState(state, message) {
+            if (state === 'loading') {
+                fetchButton.disabled = true;
+                fetchActivitiesModalBtn.disabled = true;
+                fetchAppsModalBtn.disabled = true;
+                developerSettingsButton.disabled = true;
+                autoCacheBtn.disabled = true; // Disable auto-cache during other fetches
+                downloadCacheBtn.disabled = true; // Disable download during other fetches
+
+                fetchButton.classList.add('opacity-50');
+                fetchActivitiesModalBtn.classList.add('opacity-50');
+                fetchAppsModalBtn.classList.add('opacity-50');
+                developerSettingsButton.classList.add('opacity-50');
+                autoCacheBtn.classList.add('opacity-50');
+                downloadCacheBtn.classList.add('opacity-50');
+
+                statusArea.textContent = message;
+            } else if (state === 'idle') {
+                fetchButton.disabled = false;
+                fetchActivitiesModalBtn.disabled = false;
+                fetchAppsModalBtn.disabled = false;
+                developerSettingsButton.disabled = false;
+                autoCacheBtn.disabled = false;
+                downloadCacheBtn.disabled = false;
+
+                fetchButton.classList.remove('opacity-50');
+                fetchActivitiesModalBtn.classList.remove('opacity-50');
+                fetchAppsModalBtn.classList.remove('opacity-50');
+                developerSettingsButton.classList.remove('opacity-50');
+                autoCacheBtn.classList.remove('opacity-50');
+                downloadCacheBtn.classList.remove('opacity-50');
+                if(message) statusArea.textContent = message;
+            } else if (state === 'error') {
+                fetchButton.disabled = false;
+                fetchActivitiesModalBtn.disabled = false;
+                fetchAppsModalBtn.disabled = false;
+                developerSettingsButton.disabled = false;
+                autoCacheBtn.disabled = false;
+                downloadCacheBtn.disabled = false;
+
+                fetchButton.classList.remove('opacity-50');
+                fetchActivitiesModalBtn.classList.remove('opacity-50');
+                fetchAppsModalBtn.classList.remove('opacity-50');
+                developerSettingsButton.classList.remove('opacity-50');
+                autoCacheBtn.classList.remove('opacity-50');
+                downloadCacheBtn.classList.remove('opacity-50');
+                statusArea.textContent = message;
+            }
+        }
+        
+        // --- Clipboard and Event Handlers ---
+        
+        function copyToClipboard(text, buttonElement) {
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = buttonElement.innerHTML;
+                buttonElement.innerHTML = 'Copied!';
+                setTimeout(() => { buttonElement.innerHTML = originalText; }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy:', err);
+                alert('Failed to copy to clipboard.');
+            });
+        }
+        
+        async function toggleExcludeKnown() {
+            if (!isExcludingKnown) { // Turning it ON
+                const success = await fetchKnownIds();
+                if (!success) return; // Don't toggle if fetch failed
+                isExcludingKnown = true;
+                excludeKnownButton.classList.add('exclude-btn-active');
+            } else { // Turning it OFF
+                isExcludingKnown = false;
+                excludeKnownButton.classList.remove('exclude-btn-active');
+            }
+            updateAndDisplayResults();
+        }
+
+        function displayLookupInfo(data, infoContainer) {
+            infoContainer.classList.remove('hidden');
+
+            let avatarUrl;
+            let userNameDisplay;
+            let tagsHtml = '';
+            
+            // Normalize data from different APIs to a common format for display
+            const id = data.id;
+            const username = data.username || data.name; // SCNX uses 'name'
+            const discriminator = data.discriminator === "0" ? null : data.discriminator; // Deno/Botghost can have "0"
+            const global_name = data.global_name || null;
+            const avatar = data.avatar || data.avatarURL; // SCNX has avatarURL
+            const isBot = typeof data.bot === 'boolean' ? data.bot : (data.flags ? (data.flags & (1 << 0)) : false); // SCNX has flags as array, Deno as number
+            let publicFlags = data.public_flags || data.flags || 0; // Deno has public_flags, SCNX has flags as an array. Needs careful handling.
+
+            // If SCNX `flags` is an array of strings like ["staff"], convert to numeric publicFlags
+            if (Array.isArray(data.flags)) {
+                if (data.flags.includes("staff")) {
+                    publicFlags |= (1 << 18); // Simulate DISCORD_CERTIFIED_MODERATOR_FLAG
+                }
+                // Add other flags if SCNX provides them in array form
+            }
+
+            const DISCORD_CERTIFIED_MODERATOR_FLAG = 1 << 18; // Discord Certified Moderator (Staff)
+            const VERIFIED_BOT_FLAG = 1 << 16; // Verified Bot
+
+            // Determine avatar URL - always use Discord's logic
+            if (avatar) {
+                // If it's a full URL (SCNX), use it directly
+                if (avatar.startsWith('http')) {
+                    avatarUrl = avatar.replace('?size=2048', '?size=256'); // Prefer a smaller size for display
+                } else { // It's a hash (BotGhost/Deno)
+                    avatarUrl = `https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=256`;
+                }
+            } else {
+                // Use Discord's default embed avatar if no custom avatar is set (including for null avatars)
+                const defaultAvatarNum = (parseInt(id) >> 22) % 6;
+                avatarUrl = `https://cdn.discordapp.com/embed/avatars/${defaultAvatarNum}.png`;
+            }
+
+            // Determine display name
+            userNameDisplay = username;
+            if (discriminator) {
+                userNameDisplay += `#${discriminator}`;
+            } else if (global_name) {
+                userNameDisplay = global_name;
+            }
+
+            // Determine tags (bot/user and verified status)
+            if (isBot) {
+                if ((publicFlags & VERIFIED_BOT_FLAG) || publicFlags === 65536 || publicFlags === 65537) { // Verified Bot (flag 65536 is common for deleted verified bots)
+                    tagsHtml += `
+                        <span class="botTag__5d473 botTagRegular__82f07 botTag__82f07 px__82f07">
+                            <svg aria-label="Verified App" class="botTagVerified__82f07" aria-hidden="false" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="white" fill-rule="evenodd" d="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 1.5 0 0 1-2.12 0l-4-4a1.5 1.5 0 0 1 2.12-2.12L10 13.88l6.94-6.94a1.5 1.5 0 0 1 2.12 0Z" clip-rule="evenodd" class=""></path></svg>
+                            <span class="botText__82f07">APP</span>
+                        </span>
+                    `;
+                } else { // Regular bot (or deleted non-verified bot)
+                    tagsHtml += `<span class="botTag__5d473 botTagRegular__82f07 botTag__82f07 px__82f07"><span class="botText__82f07">APP</span></span>`;
+                }
+            } else { // Not a bot (user, or deleted user)
+                tagsHtml += `<span class="botTag__5d473 botTagRegular__82f07 botTag__82f07 px__82f07" style="background-color: #7289da;"><span class="botText__82f07">USER</span></span>`;
+            }
+            
+            // Staff badge (this flag can exist on users and deleted users too)
+            if (publicFlags & DISCORD_CERTIFIED_MODERATOR_FLAG) {
+                tagsHtml += `<img src="${STAFF_BADGE_URL}" alt="Staff" class="staff-badge" title="Discord Certified Moderator">`;
+            }
+
+            infoContainer.innerHTML = `
+                <img src="${avatarUrl}" class="user-avatar" alt="User Avatar">
+                <span>${userNameDisplay}</span>
+                ${tagsHtml}
+            `;
+            
+            // --- Hide invite button if it's a user ---
+            const parentLi = infoContainer.closest('.id-item');
+            const copyInviteBtn = parentLi ? parentLi.querySelector('.copy-invite-btn') : null;
+            if (copyInviteBtn) {
+                // Show only if isBot is true
+                if (isBot) { 
+                    copyInviteBtn.style.display = ''; // Make sure it's visible
+                } else {
+                    copyInviteBtn.style.display = 'none'; // Hide for users
+                }
+            }
+        }
+
+        // Handles the global error popup visibility and countdown
+        function showGlobalErrorPopup(message, type = 'error') {
+            // Clear any existing countdown interval to prevent multiple running
+            if (cooldownCountdownInterval) {
+                clearInterval(cooldownCountdownInterval);
+            }
+
+            globalErrorPopup.classList.remove('ready', 'show'); // Reset classes
+            globalErrorPopup.textContent = message;
+
+            if (type === 'error') {
+                globalErrorPopup.style.backgroundColor = '#b22222'; // Red
+                globalErrorPopup.classList.add('show');
+                
+                cooldownCountdownInterval = setInterval(() => {
+                    const now = Date.now();
+                    const timeLeft = Math.ceil((lookupCooldownEndTime - now) / 1000); // Seconds left
+
+                    if (timeLeft > 0) {
+                        globalErrorPopup.textContent = `Lookup is on Cooldown, Please Wait ${timeLeft} Seconds`;
+                    } else {
+                        // Cooldown finished - mark as ready and then hide after a short delay
+                        globalErrorPopup.classList.add('ready'); // Change to green background
+                        globalErrorPopup.textContent = `Lookup is Ready!`;
+                        
+                        setTimeout(() => {
+                            globalErrorPopup.classList.remove('show');
+                            globalErrorPopup.classList.remove('ready'); // Clean up class
+                        }, 1500); // Hide after 1.5 seconds
+                        
+                        clearInterval(cooldownCountdownInterval); // Stop the interval
+                        cooldownCountdownInterval = null; // Clear interval ID
+                    }
+                }, 100); // Update every 100ms for smoother countdown accuracy
+            } else if (type === 'success') {
+                globalErrorPopup.style.backgroundColor = '#2d7d46'; // Green
+                globalErrorPopup.classList.add('show');
+                setTimeout(() => {
+                    globalErrorPopup.classList.remove('show');
+                }, 1500); // Hide success message after 1.5 seconds
+            }
+        }
+
+
+        async function lookupBot(id, infoContainer) {
+            // Check if data is in cache
+            if (userLookupCache.has(id)) {
+                displayLookupInfo(userLookupCache.get(id), infoContainer);
+                return true; // Indicate success (from cache)
+            }
+
+            // If a lookup is attempted while on global cooldown, show the popup and return false
+            if (!canLookup) {
+                if (!isAutoCaching) { // Only show popup for manual lookups
+                    showGlobalErrorPopup(`Please wait for cooldown to finish.`); 
+                }
+                return false;
+            }
+
+            infoContainer.innerHTML = 'Loading...';
+            infoContainer.classList.remove('hidden');
+            
+            // Set global cooldown immediately when a lookup starts
+            canLookup = false;
+            lookupCooldownEndTime = Date.now() + GLOBAL_COOLDOWN_DURATION; 
+            
+            // Reset canLookup after the cooldown duration
+            setTimeout(() => {
+                canLookup = true;
+                if (globalErrorPopup.classList.contains('show') && cooldownCountdownInterval === null) {
+                    // Only if it's currently showing and no active countdown (meaning it was due to a previous block)
+                    showGlobalErrorPopup('Lookup is Ready!', 'success');
+                }
+            }, GLOBAL_COOLDOWN_DURATION);
+
+            let lastError = "Could not fetch info from any service.";
+            let successfulLookup = false;
+
+            for (const api of LOOKUP_APIS) {
+                const now = Date.now();
+                if (now < apiLastLookupTime.get(api.name) + api.cooldown) {
+                    console.warn(`Skipping ${api.name} due to its specific cooldown.`);
+                    lastError = `Rate-limited by ${api.name}.`;
+                    continue; // Skip this API if it's on its specific cooldown
+                }
+
+                try {
+                    const controller = new AbortController();
+                    const timeoutId = setTimeout(() => controller.abort(), api.timeout);
+
+                    const response = await fetch(CORS_PROXY + encodeURIComponent(api.url + id), { signal: controller.signal });
+                    clearTimeout(timeoutId); // Clear the timeout if fetch finishes in time
+
+                    if (response.status === 429) { // Too Many Requests
+                        console.warn(`${api.name} hit rate limit.`);
+                        apiLastLookupTime.set(api.name, now); // Update last lookup time to enforce cooldown
+                        lastError = `Rate-limited by ${api.name}.`;
+                        continue; // Try next API
+                    }
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! Status: ${response.status} from ${api.name}`);
+                    }
+                    const data = await response.json();
+
+                    // Basic validation to ensure we got a valid user object
+                    if (!data || !data.id) {
+                        throw new Error(`Invalid data received from ${api.name}.`);
+                    }
+
+                    userLookupCache.set(id, data); // Cache the data
+                    displayLookupInfo(data, infoContainer);
+                    successfulLookup = true;
+                    apiLastLookupTime.set(api.name, now); // Record successful lookup time
+                    break; // Exit loop on first successful lookup
+
+                } catch (error) {
+                    console.error(`Error fetching from ${api.name}:`, error);
+                    lastError = `Error from ${api.name}: ${error.message}`;
+                }
+            }
+
+            if (!successfulLookup) {
+                infoContainer.innerHTML = `<span class="text-red-400">${lastError}</span>`;
+            }
+            return successfulLookup;
+        }
+
+        // --- Auto-Cache Functionality ---
+        async function toggleAutoCache() {
+            if (isAutoCaching) {
+                // Stop auto-caching
+                clearInterval(autoCacheInterval);
+                autoCacheInterval = null;
+                isAutoCaching = false;
+                autoCacheBtn.textContent = 'Start Auto-Cache';
+                statusArea.textContent = `Auto-cache stopped. Cached ${userLookupCache.size} IDs.`;
+            } else {
+                // Start auto-caching
+                if (currentVisibleIds.length === 0) {
+                    alert("No IDs loaded to auto-cache. Please fetch IDs first.");
+                    return;
+                }
+                isAutoCaching = true;
+                autoCacheBtn.textContent = 'Stop Auto-Cache';
+                autoCacheIndex = 0; // Reset index to start from top
+                statusArea.textContent = `Auto-cache starting...`;
+
+                autoCacheInterval = setInterval(async () => {
+                    if (autoCacheIndex < currentVisibleIds.length) {
+                        const idToLookup = currentVisibleIds[autoCacheIndex];
+                        const infoContainer = document.getElementById(`lookup-info-${idToLookup}`);
+                        
+                        // Only perform lookup if not already cached
+                        if (!userLookupCache.has(idToLookup)) {
+                            statusArea.textContent = `Auto-caching: Looking up ${idToLookup} (${autoCacheIndex + 1}/${currentVisibleIds.length})...`;
+                            // The lookupBot function itself handles the cooldown logic and retries
+                            await lookupBot(idToLookup, infoContainer); 
+                        } else {
+                            statusArea.textContent = `Auto-caching: ${idToLookup} already cached (${autoCacheIndex + 1}/${currentVisibleIds.length}).`;
+                        }
+                        autoCacheIndex++;
+                    } else {
+                        // All IDs processed
+                        toggleAutoCache(); // Stop auto-caching
+                        statusArea.textContent = `Auto-cache complete! All ${currentVisibleIds.length} IDs processed. Total cached: ${userLookupCache.size}.`;
+                    }
+                }, GLOBAL_COOLDOWN_DURATION + 500); // Use the global cooldown + buffer for interval
+            }
+        }
+
+        // --- Download Cache Functionality ---
+        function downloadCachedLookups() {
+            if (userLookupCache.size === 0) {
+                alert("No lookup data to download. Perform some lookups first!");
+                return;
+            }
+
+            const dataToSave = {};
+            userLookupCache.forEach((value, key) => {
+                dataToSave[key] = value;
+            });
+
+            const jsonString = JSON.stringify(dataToSave, null, 2);
+            const blob = new Blob([jsonString], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `discord_lookup_cache_${new Date().toISOString().split('T')[0]}.json`;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url); // Clean up the object URL
+            
+            alert(`Downloaded ${userLookupCache.size} cached lookups to file!`);
+        }
+
+        // --- Modal Control Functions ---
+        function openFetchOptionsModal() {
+            fetchOptionsModal.classList.remove('hidden');
+            fetchAppsWarning.classList.add('hidden'); // Hide warning initially
+            if (fetchAppsDoubleCheckTimer) {
+                clearTimeout(fetchAppsDoubleCheckTimer);
+                fetchAppsDoubleCheckTimer = null;
+            }
+        }
+
+        function closeFetchOptionsModal() {
+            fetchOptionsModal.classList.add('hidden');
+            fetchAppsWarning.classList.add('hidden'); // Hide warning
+            if (fetchAppsDoubleCheckTimer) {
+                clearTimeout(fetchAppsDoubleCheckTimer);
+                fetchAppsDoubleCheckTimer = null;
+            }
+        }
+
+        function openDevSettingsModal() {
+            devSettingsModal.classList.remove('hidden');
+        }
+
+        function closeDevSettingsModal() {
+            devSettingsModal.classList.add('hidden');
+            // If auto-cache is running, ensure it stops when the modal closes
+            if (isAutoCaching) {
+                toggleAutoCache(); 
+            }
+        }
+
+        // --- Event Listeners ---
+        fetchButton.addEventListener('click', openFetchOptionsModal);
+        closeFetchModalBtn.addEventListener('click', closeFetchModalBtn); // Corrected to use closeFetchModalBtn
+        closeFetchModalBtn.addEventListener('click', closeFetchOptionsModal);
+
+
+        fetchActivitiesModalBtn.addEventListener('click', () => {
+            fetchActivityData(); // This function already closes the modal
+        });
+
+        fetchAppsModalBtn.addEventListener('click', () => {
+            if (fetchAppsDoubleCheckTimer) {
+                // Second click: proceed with fetch
+                clearTimeout(fetchAppsDoubleCheckTimer);
+                fetchAppsDoubleCheckTimer = null;
+                fetchAppsWarning.classList.add('hidden');
+                // For "Fetch Apps", we'll use a fixed, high limit for now,
+                // as a user input dialog is more complex to add immediately.
+                const userLimit = 2000; // Default limit for "Fetch Apps" for browser safety
+                fetchDiscordInvitesJs(userLimit);
+            } else {
+                // First click: show warning and set timer
+                fetchAppsWarning.classList.remove('hidden');
+                fetchAppsDoubleCheckTimer = setTimeout(() => {
+                    fetchAppsWarning.classList.add('hidden');
+                    fetchAppsDoubleCheckTimer = null;
+                }, FETCH_APPS_DOUBLE_CLICK_TIMEOUT);
+            }
+        });
+
+        developerSettingsButton.addEventListener('click', openDevSettingsModal);
+        closeDevModalBtn.addEventListener('click', closeDevSettingsModal);
+        autoCacheBtn.addEventListener('click', toggleAutoCache);
+        downloadCacheBtn.addEventListener('click', downloadCachedLookups);
+
+        searchBar.addEventListener('input', updateAndDisplayResults);
+        excludeKnownButton.addEventListener('click', toggleExcludeKnown);
+
+        copyIdsButton.addEventListener('click', () => {
+            if (currentVisibleIds.length === 0) return;
+            copyToClipboard(currentVisibleIds.join('\n'), copyIdsButton);
+        });
+
+        copyInvitesButton.addEventListener('click', () => {
+            // Now, it will always attempt to copy an invite for any displayed ID
+            if (currentVisibleIds.length === 0) {
+                alert("No IDs available to generate invites for.");
+                return;
+            }
+            // Generate invites for ALL currently visible IDs
+            const invites = currentVisibleIds.map(id => `https://discord.com/api/oauth2/authorize?client_id=${id}&scope=bot`).join('\n');
+            copyToClipboard(invites, copyInvitesButton);
+        });
+        
+        resultsList.addEventListener('click', (e) => {
+            const copyInviteButton = e.target.closest('.copy-invite-btn');
+            if (copyInviteButton) {
+                const id = copyInviteButton.dataset.id;
+                // Always attempt to copy the invite link
+                const inviteLink = `https://discord.com/api/oauth2/authorize?client_id=${id}&scope=bot`;
+                copyToClipboard(inviteLink, copyInviteButton);
+            }
+
+            const lookupButton = e.target.closest('.lookup-btn');
+            if (lookupButton) {
+                const id = lookupButton.dataset.id;
+                const infoContainer = document.getElementById(`lookup-info-${id}`);
+                // Call lookupBot without awaiting to avoid blocking UI for individual clicks
+                lookupBot(id, infoContainer); 
+            }
+        });
+
+    </script>
+</body>
+</html>
