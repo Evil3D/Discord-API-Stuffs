@@ -249,12 +249,14 @@ Types:
   "target_type": null,
   "temporary": true,
   "flags": 0
-  "validate": "<invite code>" //run the first time, the second, flags are added
+  "validate": "<invite code>" //run the first time, the second, flags are added and validate is removed
 }
 ```
 
 **Endpoint:**
-`POST api/v9/channels/<channel_id>/invites
+`POST https://canary.discord.com/api/v9/channels/<channel_id>/invites`
+
+***Yes, channel, not guild, im assuming in that way u can invite someone to a dm?? but idk***
 
 ---
 
