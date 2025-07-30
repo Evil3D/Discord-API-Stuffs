@@ -1,15 +1,33 @@
-# Discord API Stuffs
+# ⚙️ Discord API Stuffs
 
-Basically when im bored (which... is alot) i sometimes js do random shi- stuff and look at my network console thing and see what happens so this is basically that (nice..).
+> ⚠️ **Educational Purposes Only**  
+> This project is meant to document how the Discord client interacts with its API.  
+> It is not intended for abuse, automation, alt generation, or anything against [Discord’s Terms of Service](https://discord.com/terms).  
+> Do not self-bot. Do not use this data maliciously.  
+> This is just for learning, exploration, and testing.
 
-Also this isnt really anything advanced (imo atleast), short tutorial: open up google console (or dev tools idk the official name, call it wtv) using Ctrl + Shift + I (incase you didnt know) and go to the network tab (if it doesnt show up press the double arrow to add it) and just do something, like making a channel.
+---
 
-FYI: dont mind the text being red, it's just markdown being mad frfr..
+## 📘 What is this?
 
-FYI 2: most endpoints will be from canary, since im that cool yea.. yea...
+Whenever I'm bored (which... is a lot), I open DevTools and poke around the Discord API to see what happens.  
+This repo documents some of what I’ve discovered — especially request bodies (JSON) that aren't easily found anywhere else.
 
-### Channels
-#### Creation
+> Most endpoints were tested using [Discord Canary](https://canary.discord.com), since I'm fancy like that.
+
+---
+
+## 🧠 Why I Made This
+
+I couldn't find a simple and up-to-date resource with actual API request payloads — not even Discord’s [official docs](https://github.com/discord/discord-api-docs) include this kind of stuff clearly.  
+So I made my own, in a way that’s easy enough for even a monkey to understand.
+
+---
+
+## 📦 Channels
+
+### Channel Creation
+
 ```json
 {
   "name": "<name>",
@@ -23,31 +41,38 @@ FYI 2: most endpoints will be from canary, since im that cool yea.. yea...
   "bitrate": 64000,
   "user_limit": <1-99>,
   "nsfw": false,
-  "flags": 4295063878, //these are all of the flags possible for a channel (almost all)
-  "rate_limit_per_user": <0-21600, in seconds>
+  "flags": 4295063878,
+  "rate_limit_per_user": <0-21600>
 }
 ```
 
-0 = text channel,
-2 = voice channel,
-4 = category (cannot have a parent_id),
-5 = announcement channel,
-6 = Discord Store Channel, you need a SKU ID and since i do not have 1 or can't create 1 either i can't test it, 
-13 = stage channel,
-15 = forum channel,
-14 = Unknown, but considered valid by discord,
-16 = media channel
+> 📢 FYI: If im not mistaken, the user limit is for voice chat channels, i have no idea what the rate limit per user is for.
 
-API Endpoint: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels
+Types:
+- 0 = text channel  
+- 2 = voice channel  
+- 4 = category (cannot have a parent_id)  
+- 5 = announcement channel  
+- 6 = store channel (deprecated, requires SKU ID)  
+- 13 = stage channel  
+- 14 = unknown/unused but valid  
+- 15 = forum channel  
+- 16 = media channel  
 
-#### Editing
+**Endpoint:**  
+`POST https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels`
+
+---
+
+### Channel Editing
+
 ```json
 {
   "id": "<channel_id>",
   "type": <list above>,
-  "last_message_id": "<im guessing this is optional>",
+  "last_message_id": "<optional>",
   "flags": 0,
-  "guild_id": "<well guild id>",
+  "guild_id": "<guild_id>",
   "name": "<name>",
   "parent_id": "<category_id>",
   "rate_limit_per_user": 0,
@@ -57,118 +82,200 @@ API Endpoint: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels
   "nsfw": false,
   "icon_emoji": {
     "id": null,
-    "name": "👋(this is the default)"
+    "name": "👋"
   },
-  "theme_color": null // idek what this is
+  "theme_color": null
 }
 ```
-#### THE EDITING DOES NOT WORK AS FAR AS I KNOW. (i use bot tokens to test, not self-botting, also dont self-bot, it's against the TOS and mostly unethical)
 
-API Endpoint: https://canary.discord.com/api/v9/channels/<CHANNEL_ID>
+> ❌ Editing doesn’t always work — may require proper headers or permissions.
 
-### Creating Server
+**Endpoint:**  
+`PATCH https://canary.discord.com/api/v9/channels/<CHANNEL_ID>`
+
+---
+
+## 🌐 Server Creation
+
 ```json
 {
   "name": "<your server name>",
-  "icon": "data:image/png;base64, <image in b64 format>", set to null if none.
-  "guild_template_code": "2TffvPucqHkN", // default, if none selected
+  "icon": "data:image/png;base64,<image>", // or null
+  "guild_template_code": "2TffvPucqHkN", // default template
   "channels": [],
-  "system_channel_id": "<so the channel id for the joins/nitro boost thingy>" // not modifiable, set to null, otherwise might error.
+  "system_channel_id": null
 }
 ```
 
-API Endpoint: https://canary.discord.com/api/v9/guilds
+**Endpoint:**  
+`POST https://canary.discord.com/api/v9/guilds`
 
-bonus: https://canary.discord.com/api/v9/guilds/<GUILD_ID>/delete
+**Bonus Endpoint:**  
+`DELETE https://canary.discord.com/api/v9/guilds/<GUILD_ID>`
 
-### Checking username availability
+---
+
+## 🧑 Account Actions
+
+### Username Availability Check
+
 ```json
 {
-  "username": "<username to check>"
+  "username": "<desired_username>"
 }
 ```
 
-API Endpoint: https://discord.com/api/v9/unique-username/username-attempt-unauthed
+**Endpoint:**  
+`POST https://discord.com/api/v9/unique-username/username-attempt-unauthed`
 
-### Creating Account
+---
+
+### Account Creation
+
 ```json
 {
-  "fingerprint": "", //  have no idea how to get it, im guessing it's from the captcha or something idk
+  "fingerprint": "",
   "email": "<email>",
   "username": "<username>",
   "global_name": "<display_name>",
   "password": "<password>",
-  "invite": null, // idk the format for these
+  "invite": null,
   "consent": true,
-  "date_of_birth": "<dob, in this format: yyyy-mm-dd",
+  "date_of_birth": "yyyy-mm-dd",
   "gift_code_sku_id": null,
   "promotional_email_opt_in": false
 }
 ```
 
-API Endpoint: https://discord.com/api/v9/auth/register
+> 🔐 Fingerprint might come from captcha or session — not always needed in test scenarios.
 
-### Account
-#### Verify
+**Endpoint:**  
+`POST https://discord.com/api/v9/auth/register`
+
+---
+
+### Account Verification
+
 ```json
 {
-  "token": "<i also have no idea how to get this>"
+  "token": "<verification_token>"
 }
 ```
 
-API Endpoint: https://discord.com/api/v9/auth/verify
+**Endpoint:**  
+`POST https://discord.com/api/v9/auth/verify`
 
-#### Login
+---
+
+### Login
+
 ```json
 {
   "login": "<email>",
   "password": "<password>",
-  "undelete": false, //idk what this is, would be useful if u can undelete u r account js with that though
+  "undelete": false,
   "login_source": null,
   "gift_code_sku_id": null
 }
 ```
 
-API Endpoint: https://canary.discord.com/api/v9/auth/login
+**Endpoint:**  
+`POST https://canary.discord.com/api/v9/auth/login`
 
-#### Forgot Pass
+---
+
+### Forgot Password
+
 ```json
 {
   "login": "<email>"
 }
 ```
 
-https://canary.discord.com/api/v9/auth/forgot
+**Endpoint:**  
+`POST https://canary.discord.com/api/v9/auth/forgot`
 
-### Set Hypesquad Badge
+---
+
+## 🏠 HypeSquad Badge
+
 ```json
 {
-  "house_id": <list below>
+  "house_id": 1
 }
 ```
 
-1 = Bravery (Purple)
-2 = Brilliance (Red)
-3 = Balance (Cyan-ish)
+- 1 = Bravery (purple)  
+- 2 = Brilliance (red)  
+- 3 = Balance (cyan)
 
-API Endpoint: https://canary.discord.com/api/v9/hypesquad/online
+**Endpoint:**  
+`POST https://canary.discord.com/api/v9/hypesquad/online`
 
-### Skip Video Quest
+---
+
+## 📹 Skip Video Quest
+
 ```json
 {
-  "timestamp": <in second, could maybe set it to 999 and prob would work, havent tried>
+  "timestamp": 999
 }
 ```
 
-API Endpoint: https://canary.discord.com/api/v9/quests/<Quest_ID>/video-progress
+**Endpoint:**  
+`POST https://canary.discord.com/api/v9/quests/<quest_id>/video-progress`
 
-### Create Group DM
+---
+
+## 💬 Group DM Creation
+
 ```json
 {
-  "recipients": [[<user-1>], [<user-2>]]
+  "recipients": []
 }
 ```
 
-FYI: u can leave the recipients empty to make a empty group dm with just you.
+> You can leave `recipients` empty to make a group DM with just yourself.
 
-API Endpoint: https://canary.discord.com/api/v9/users/@me/channels
+**Endpoint:**  
+`POST https://canary.discord.com/api/v9/users/@me/channels`
+
+## Invite Creation
+
+```json
+{
+  "max_age": 0,
+  "max_uses": 0,
+  "target_type": null,
+  "temporary": true,
+  "flags": 0
+  "validate": "<invite code>" //run the first time, the second, flags are added
+}
+```
+
+**Endpoint:**
+`POST api/v9/channels/<channel_id>/invites
+
+---
+
+## 🧪 Notes
+
+- Most of this is gathered from personal testing in browser DevTools.
+- You **must** have the right headers/tokens to use these endpoints.
+- Never share your Discord token.
+- Do **not** use this information to violate TOS — this is strictly educational.
+
+---
+
+## 📜 Legal & TOS
+
+This is a learning project only.  
+It is not affiliated with or endorsed by Discord.  
+You are responsible for how you use this data. Use it wisely and ethically.
+
+---
+
+## 💡 Contributions
+
+Found a new payload or experimental feature?  
+Feel free to submit a PR or open an issue to contribute.
