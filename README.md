@@ -240,7 +240,7 @@ Types:
 **Endpoint:**  
 `POST https://canary.discord.com/api/v9/users/@me/channels`
 
-## Invite Creation
+## ✉️ Invite Creation
 
 ```json
 {
