@@ -10,8 +10,10 @@
 
 ## 📘 What is this?
 
-Whenever I'm bored (which... is a lot), I open DevTools and poke around the Discord API to see what happens.  
+Whenever I'm bored (which... is a lot), I open DevTools and poke around the Discord API to see what happens.
 This repo documents some of what I’ve discovered — especially request bodies (JSON) that aren't easily found anywhere else.
+
+**ALSO** I recommend you go to the discord api docs instead, although i did notice that this api like doc(s) has some stuff the one made by discord doesn't.
 
 > Most endpoints were tested using [Discord Canary](https://canary.discord.com), since I'm fancy like that.
 
@@ -49,15 +51,17 @@ So I made my own, in a way that’s easy enough for even a monkey to understand.
 > 📢 FYI: If im not mistaken, the user limit is for voice chat channels, i have no idea what the rate limit per user is for.
 
 Types:
-- 0 = text channel  
-- 2 = voice channel  
-- 4 = category (cannot have a parent_id)  
-- 5 = announcement channel  
-- 6 = store channel (deprecated, requires SKU ID)  
-- 13 = stage channel  
-- 14 = unknown/unused but valid  
-- 15 = forum channel  
-- 16 = media channel  
+- 0 = text channel
+- 1 = DM channel
+- 2 = voice channel
+- 3 = group DM
+- 4 = category (cannot have a parent_id)
+- 5 = announcement channel
+- 6 = store channel (deprecated, requires SKU ID)
+- 13 = stage channel
+- 14 = unknown/unused but valid
+- 15 = forum channel
+- 16 = media channel
 
 **Endpoint:**  
 `POST https://canary.discord.com/api/v9/guilds/<GUILD_ID>/channels`
