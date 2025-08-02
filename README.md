@@ -16,6 +16,8 @@ This repo documents some of what I’ve discovered — especially request bodies
 **ALSO** I recommend you go to the discord api docs instead, although i did notice that this api like doc(s) has some stuff the one made by discord doesn't.
 
 > Most endpoints were tested using [Discord Canary](https://canary.discord.com), since I'm fancy like that.
+>
+> Also if u want, check out the [Discord APP Finder](https://evil3d.github.io/Discord-API-Stuffs/DiscordAppLookup.html).
 
 ---
 
