@@ -110,7 +110,7 @@ Types:
   "guild_template_code": "2TffvPucqHkN", // default template
   "channels": [],
   "system_channel_id": null
-  "staff_only": true/false // ??? i have no idea, undocumented aswell.
+  "staff_only": true // ??? i have no idea, undocumented aswell.
 }
 ```
 
