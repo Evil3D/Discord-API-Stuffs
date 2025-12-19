@@ -101,7 +101,9 @@ Types:
 
 ---
 
-## 🌐 Server Creation
+## 🌐 Servers
+
+### Creation
 
 ```json
 {
@@ -122,6 +124,19 @@ Types:
 
 ---
 
+### Joining via invite
+
+```json
+{
+	"session_id": "<SId>"
+}
+```
+
+**Endpoint:**
+`POST https://discord.com/api/v9/invites/<INVITE>`
+
+---
+
 ## 🧑 Account Actions
 
 ### Username Availability Check
@@ -137,7 +152,7 @@ Types:
 
 ---
 
-### Account Creation
+### Creation
 
 ```json
 {
@@ -161,7 +176,18 @@ Types:
 
 ---
 
-### Account Verification
+### Deletion
+
+```json
+{
+	"password": ""
+}
+```
+
+**Endpoint:**
+`POST https://discord.com/api/v9/users/@me/delete`
+
+### Verification
 
 ```json
 {
