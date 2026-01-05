@@ -46,7 +46,8 @@ So I made my own, in a way that’s easy enough for even a monkey to understand.
   "user_limit": <1-99>,
   "nsfw": false,
   "flags": 4295063878,
-  "rate_limit_per_user": <0-21600>
+  "rate_limit_per_user": <0-21600>,
+  "sku_id":""
 }
 ```
 
