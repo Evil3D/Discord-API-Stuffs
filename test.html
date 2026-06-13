@@ -47,14 +47,9 @@
             flex-basis: auto;
             min-width: 60px;
         }
-        .control-btn.stacked-text-button span {
-            display: block;
-        }
+        .control-btn.stacked-text-button span { display: block; }
 
-        #fetch-button {
-            min-width: 120px;
-            flex-grow: 1.5;
-        }
+        #fetch-button { min-width: 120px; flex-grow: 1.5; }
 
         .control-btn.dev-button {
             flex-direction: column;
@@ -65,15 +60,9 @@
             flex-shrink: 0;
             font-size: 0.875rem;
         }
-        .control-btn.dev-button svg {
-            width: 20px;
-            height: 20px;
-        }
+        .control-btn.dev-button svg { width: 20px; height: 20px; }
 
-        .exclude-btn-active {
-            background-color: #2d7d46;
-            color: white;
-        }
+        .exclude-btn-active { background-color: #2d7d46; color: white; }
         .exclude-btn-active:hover { background-color: #399254; }
 
         .botTag__5d473 {
@@ -89,21 +78,7 @@
             background-color: #5865f2;
             margin-left: 8px;
         }
-        .botTagVerified__82f07 {
-            margin-right: 4px;
-            width: 14px;
-            height: 14px;
-            vertical-align: middle;
-        }
-        .botText__82f07 {
-            vertical-align: middle;
-        }
-        .staff-badge {
-            width: 16px;
-            height: 16px;
-            margin-left: 4px;
-            vertical-align: middle;
-        }
+        .staff-badge { width: 16px; height: 16px; margin-left: 4px; vertical-align: middle; }
         .user-info-container {
             display: flex;
             align-items: center;
@@ -112,12 +87,7 @@
             font-size: 0.9em;
             color: #c9c9c9;
         }
-        .user-avatar {
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            object-fit: cover;
-        }
+        .user-avatar { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
 
         #global-error-popup {
             top: -50px;
@@ -125,23 +95,14 @@
             background-color: #b22222;
             transition: all 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }
-        #global-error-popup.show {
-            top: 20px;
-        }
-        #global-error-popup.ready {
-            background-color: #2d7d46;
-        }
+        #global-error-popup.show { top: 20px; }
+        #global-error-popup.ready { background-color: #2d7d46; }
 
         .modal-overlay {
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background-color: rgba(0, 0, 0, 0.75);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            display: flex; justify-content: center; align-items: center;
             z-index: 1000;
         }
         .modal-content {
@@ -149,190 +110,78 @@
             padding: 24px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
-            text-align: center;
             max-width: 400px;
             width: 90%;
             position: relative;
         }
         .modal-button {
-            display: block;
-            width: 100%;
-            padding: 12px 20px;
-            margin-bottom: 12px;
-            border-radius: 8px;
-            font-weight: 600;
-            transition: background-color 0.2s, transform 0.1s;
-            height: 60px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: flex; width: 100%; padding: 12px 20px; margin-bottom: 12px;
+            border-radius: 8px; font-weight: 600; transition: background-color 0.2s, transform 0.1s;
+            height: 60px; align-items: center; justify-content: center;
         }
-        .modal-button:last-child {
-            margin-bottom: 0;
-        }
-        .modal-button.blue {
-            background-color: #5865f2;
-            color: white;
-        }
-        .modal-button.blue:hover {
-            background-color: #4752c4;
-            transform: scale(1.02);
-        }
-        .modal-button.red {
-            background-color: #ed4245;
-            color: white;
-        }
-        .modal-button.red:hover {
-            background-color: #d33538;
-            transform: scale(1.02);
-        }
+        .modal-button.blue { background-color: #5865f2; color: white; }
+        .modal-button.blue:hover { background-color: #4752c4; transform: scale(1.02); }
+        .modal-button.red { background-color: #ed4245; color: white; }
+        .modal-button.red:hover { background-color: #d33538; transform: scale(1.02); }
         .modal-close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: none;
-            border: none;
-            color: #dcddde;
-            font-size: 1.5rem;
-            cursor: pointer;
+            position: absolute; top: 10px; right: 10px; background: none; border: none;
+            color: #dcddde; font-size: 1.5rem; cursor: pointer; z-index: 10;
         }
 
-        .controls-flex-container {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.3s ease-in-out;
-        }
-        .search-bar-flex {
-            flex-grow: 1;
-            transition: flex-grow 0.3s ease-in-out;
-        }
-        .buttons-group {
-            display: flex;
-            gap: 8px;
-            transition: all 0.3s ease-in-out;
-            flex-shrink: 0;
-        }
+        .controls-flex-container { display: flex; align-items: center; gap: 8px; transition: all 0.3s; }
+        .search-bar-flex { flex-grow: 1; transition: flex-grow 0.3s; }
+        .buttons-group { display: flex; gap: 8px; transition: all 0.3s; flex-shrink: 0; }
 
         .developer-settings-button-container {
-            opacity: 0;
-            width: 0;
-            overflow: hidden;
-            transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
-            pointer-events: none;
-            flex-shrink: 0;
+            opacity: 0; width: 0; overflow: hidden; transition: opacity 0.3s, width 0.3s;
+            pointer-events: none; flex-shrink: 0;
         }
-        .developer-settings-button-container.visible {
-            opacity: 1;
-            width: auto;
-            pointer-events: auto;
-            margin-left: 8px;
-        }
-        .search-bar-input {
-            height: 60px;
-            padding-top: 0.5rem;
-            padding-bottom: 0.5rem;
-            font-size: 1rem;
-        }
+        .developer-settings-button-container.visible { opacity: 1; width: auto; pointer-events: auto; margin-left: 8px; }
+        .search-bar-input { height: 60px; padding: 0.5rem 1rem; font-size: 1rem; }
 
-        /* Fixed CSS: width is max-content instead of strict 32px so "Copied!" text fits nicely */
-        .lookup-btn, .copy-invite-btn {
-            height: 32px;
-            min-width: 32px;
-            width: max-content; 
-            padding: 4px 8px;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #404249;
-            transition: background-color 0.2s, width 0.2s ease;
+        .action-btn {
+            height: 32px; min-width: 32px; width: max-content; padding: 4px 8px;
+            border-radius: 4px; display: flex; align-items: center; justify-content: center;
+            background-color: #404249; transition: background-color 0.2s, width 0.2s ease;
         }
-        .lookup-btn:hover, .copy-invite-btn:hover {
-            background-color: #4f545c;
-        }
+        .action-btn:hover { background-color: #4f545c; }
+        
+        .flag-pill { background-color: #393c43; padding: 4px 8px; border-radius: 4px; font-size: 0.75rem; color: #dcddde; border: 1px solid #4f545c; }
 
         #toggle-fast-cache-btn {
-            height: 60px;
-            font-size: 1rem;
-            padding: 0 16px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            flex-shrink: 0;
-            color: white;
+            height: 60px; font-size: 1rem; padding: 0 16px; display: flex; align-items: center;
+            justify-content: center; border-radius: 8px; flex-shrink: 0; color: white;
         }
-        #toggle-fast-cache-btn.toggle-btn-active {
-            background-color: #2d7d46;
-        }
-        #toggle-fast-cache-btn:not(.toggle-btn-active) {
-            background-color: #ed4245;
-        }
-        #toggle-fast-cache-btn:hover.toggle-btn-active {
-            background-color: #399254;
-        }
-        #toggle-fast-cache-btn:hover:not(.toggle-btn-active) {
-            background-color: #d33538;
-        }
+        #toggle-fast-cache-btn.toggle-btn-active { background-color: #2d7d46; }
+        #toggle-fast-cache-btn:not(.toggle-btn-active) { background-color: #ed4245; }
 
         @media (max-width: 768px) {
-            .controls-flex-container {
-                flex-direction: column;
-                align-items: stretch;
-            }
-            .buttons-group {
-                flex-wrap: wrap;
-                width: 100%;
-            }
-            .buttons-group .control-btn {
-                flex-grow: 1;
-                flex-basis: calc(50% - 4px);
-                max-width: calc(50% - 4px);
-                white-space: nowrap;
-            }
-            .buttons-group .control-btn.stacked-text-button {
-                flex-direction: column;
-                white-space: normal;
-                flex-basis: auto;
-            }
-            #fetch-button {
-                min-width: unset;
-                flex-grow: 1;
-                flex-basis: calc(50% - 4px);
-            }
-            .developer-settings-button-container.visible {
-                width: 100%;
-                margin-left: 0;
-            }
-            .developer-settings-button {
-                flex-grow: 1;
-                flex-basis: calc(50% - 4px);
-                max-width: calc(50% - 4px);
-                min-width: unset;
-            }
+            .controls-flex-container { flex-direction: column; align-items: stretch; }
+            .buttons-group { flex-wrap: wrap; width: 100%; }
+            .buttons-group .control-btn { flex-grow: 1; flex-basis: calc(50% - 4px); max-width: calc(50% - 4px); white-space: nowrap; }
+            .buttons-group .control-btn.stacked-text-button { flex-direction: column; white-space: normal; flex-basis: auto; }
+            #fetch-button { min-width: unset; flex-grow: 1; flex-basis: calc(50% - 4px); }
+            .developer-settings-button-container.visible { width: 100%; margin-left: 0; }
+            .developer-settings-button { flex-grow: 1; flex-basis: calc(50% - 4px); max-width: calc(50% - 4px); min-width: unset; }
         }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
 
-    <div id="global-error-popup" class="fixed top-[-50px] left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg transition-all duration-300 z-50">
-    </div>
+    <div id="global-error-popup" class="fixed top-[-50px] left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg z-50"></div>
 
     <div id="fetch-options-modal" class="modal-overlay hidden">
-        <div class="modal-content relative">
+        <div class="modal-content relative text-center">
             <button class="modal-close-btn" id="close-fetch-modal-btn">&times;</button>
             <h2 class="text-xl font-bold mb-6 text-white">Choose Fetch Type</h2>
-            <div id="fetch-apps-warning" class="text-red-400 text-sm mb-4 hidden">
-                Are you sure? This could potentially crash your browser or this tab. Click again to run anyway.
-            </div>
+            <div id="fetch-apps-warning" class="text-red-400 text-sm mb-4 hidden">This could potentially crash your browser. Click again to run anyway.</div>
             <button id="fetch-activities-modal-btn" class="modal-button blue">Fetch Activities</button>
             <button id="fetch-apps-modal-btn" class="modal-button red">Fetch Applications</button>
         </div>
     </div>
 
     <div id="dev-settings-modal" class="modal-overlay hidden">
-        <div class="modal-content relative">
+        <div class="modal-content relative text-center">
             <button class="modal-close-btn" id="close-dev-modal-btn">&times;</button>
             <h2 class="text-xl font-bold mb-6 text-white">Developer Settings</h2>
             <button id="auto-cache-btn" class="modal-button blue">Start Auto-Cache</button>
@@ -342,6 +191,38 @@
             </div>
             <button id="download-cache-btn" class="modal-button blue">Download Cache</button>
             <button id="show-unlooked-up-btn" class="modal-button blue mt-4">Show Unlooked-up IDs</button>
+        </div>
+    </div>
+
+    <div id="profile-modal" class="modal-overlay hidden">
+        <div class="modal-content !p-0 !max-w-lg overflow-hidden shadow-2xl border border-gray-700">
+            <button class="modal-close-btn bg-gray-900 bg-opacity-60 hover:bg-opacity-90 rounded-full w-8 h-8 flex items-center justify-center top-2 right-2 transition" id="close-profile-modal-btn">&times;</button>
+            
+            <div id="profile-banner" class="h-32 bg-[#393c43] w-full bg-cover bg-center"></div>
+            
+            <div class="px-6 pb-6 relative text-left">
+                <div class="absolute -top-12 left-6 rounded-full border-[6px] border-[#2b2d31] bg-[#2b2d31]">
+                    <img id="profile-avatar" class="w-[84px] h-[84px] rounded-full object-cover" src="" alt="">
+                </div>
+                
+                <div class="mt-14">
+                    <h2 id="profile-name" class="text-2xl font-bold text-white flex items-center flex-wrap gap-2"></h2>
+                    <p id="profile-creation" class="text-sm text-gray-400 mt-1"></p>
+                    
+                    <div id="profile-dg-info" class="mt-4 hidden bg-[#1e1f22] p-4 rounded-lg border border-gray-700">
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2 flex items-center gap-1">
+                            <svg width="12" height="12" fill="currentColor" class="bi bi-hdd-network" viewBox="0 0 16 16"><path d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M3 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m11 2.5v-5a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1M3 2h10a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5v-5A.5.5 0 0 1 3 2"/><path d="M5 10v1h1a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1h1v-1H2.5A1.5 1.5 0 0 0 1 11.5v3A1.5 1.5 0 0 0 2.5 16h11a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 13.5 10zM2.5 11h11a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5m.5 2.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/></svg>
+                            DiscordGate Backend Info
+                        </h3>
+                        <div id="profile-dg-content" class="text-sm text-gray-300 space-y-1"></div>
+                    </div>
+
+                    <div id="profile-flags-container" class="mt-4 hidden">
+                        <h3 class="text-xs font-bold text-gray-400 uppercase tracking-widest mb-2">Application Flags</h3>
+                        <div id="profile-flags-list" class="flex flex-wrap gap-1.5"></div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -356,54 +237,28 @@
                 <input type="text" id="search-bar" placeholder="🔍 Search for an ID..." class="w-full bg-[#1e1f22] border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition search-bar-input">
             </div>
             <div id="buttons-group" class="buttons-group">
-                 <button id="fetch-button" class="control-btn bg-blue-600 hover:bg-blue-700 text-white font-bold transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500">Fetch</button>
+                 <button id="fetch-button" class="control-btn bg-blue-600 hover:bg-blue-700 text-white font-bold">Fetch</button>
                  <button id="exclude-known-button" class="control-btn stacked-text-button text-white font-semibold"><span>Exclude</span><span>Known</span></button>
                  <button id="copy-ids-button" class="control-btn stacked-text-button text-white font-semibold"><span>Copy</span><span>IDs</span></button>
                  <button id="copy-invites-button" class="control-btn stacked-text-button text-white font-semibold"><span>Copy</span><span>Invites</span></button>
                  <div id="developer-settings-button-container" class="developer-settings-button-container">
-                    <button id="developer-settings-button" class="control-btn dev-button text-white font-semibold">
-                        ⚙️ <span>Dev</span>
-                    </button>
+                    <button id="developer-settings-button" class="control-btn dev-button text-white font-semibold">⚙️ <span>Dev</span></button>
                  </div>
             </div>
         </div>
 
         <div class="flex-grow flex flex-col overflow-hidden">
-            <div id="status-area" class="py-2 text-gray-400 text-center">
-                Click "Fetch" to start.
-            </div>
-            <ul id="results-list" class="flex-grow overflow-y-auto space-y-1 pr-2">
-            </ul>
+            <div id="status-area" class="py-2 text-gray-400 text-center">Click "Fetch" to start.</div>
+            <ul id="results-list" class="flex-grow overflow-y-auto space-y-1 pr-2"></ul>
         </div>
     </div>
 
     <script>
-        const fetchButton = document.getElementById('fetch-button');
-        const searchBar = document.getElementById('search-bar');
-        const buttonsGroup = document.getElementById('buttons-group');
+        // DOM Elements
         const resultsList = document.getElementById('results-list');
         const statusArea = document.getElementById('status-area');
-        const excludeKnownButton = document.getElementById('exclude-known-button');
-        const copyIdsButton = document.getElementById('copy-ids-button');
-        const copyInvitesButton = document.getElementById('copy-invites-button');
-        const developerSettingsButton = document.getElementById('developer-settings-button');
-        const developerSettingsButtonContainer = document.getElementById('developer-settings-button-container');
-        const globalErrorPopup = document.getElementById('global-error-popup');
-
-        const fetchOptionsModal = document.getElementById('fetch-options-modal');
-        const closeFetchModalBtn = document.getElementById('close-fetch-modal-btn');
-        const fetchActivitiesModalBtn = document.getElementById('fetch-activities-modal-btn');
-        const fetchAppsModalBtn = document.getElementById('fetch-apps-modal-btn');
-        const fetchAppsWarning = document.getElementById('fetch-apps-warning');
-
-        const devSettingsModal = document.getElementById('dev-settings-modal');
-        const closeDevModalBtn = document.getElementById('close-dev-modal-btn');
-        const autoCacheBtn = document.getElementById('auto-cache-btn');
-        const fastAutoCacheBtn = document.getElementById('fast-auto-cache-btn');
-        const toggleFastCacheBtn = document.getElementById('toggle-fast-cache-btn');
-        const downloadCacheBtn = document.getElementById('download-cache-btn');
-        const showUnlookedUpBtn = document.getElementById('show-unlooked-up-btn'); 
-
+        const searchBar = document.getElementById('search-bar');
+        
         let allFoundActivityIds = new Set();
         let allFoundAppIds = new Set();
         let currentVisibleIds = [];
@@ -412,199 +267,62 @@
         let isShowingUnlookedUp = false; 
         let userLookupCache = new Map(); 
 
-        let fetchAppsDoubleCheckTimer = null;
-        const FETCH_APPS_DOUBLE_CLICK_TIMEOUT = 3000;
+        let autoCacheInterval = null; let autoCacheIndex = 0;
+        let isAutoCaching = false; let isFastAutoCaching = false; let isFastCacheDisabled = false; 
 
-        let autoCacheInterval = null;
-        let autoCacheIndex = 0;
-        let isAutoCaching = false;
-        let isFastAutoCaching = false;
-        let isFastCacheDisabled = false; 
-
-        const GITHUB_URL = "https://raw.githubusercontent.com/Delitefully/DiscordLists/master/activities.md";
-        const INITIAL_CACHE_URL = "Lookup_Cache.json";
         const CORS_PROXY = 'https://corsproxy.io/?';
         const STAFF_BADGE_URL = 'https://cdn.discordapp.com/badge-icons/5e74e9b61934fc1f67c65515d1f7e60d.png';
 
-        // NEW API STRUCTURE: Ordered by Priority
+        // APIs mapped. DiscordGate acts uniquely as a secondary info pull.
         const LOOKUP_APIS = [
             { name: "Deno", url: 'https://discord-lookup.deno.dev/', method: 'GET', timeout: 5000, cooldown: 1000 },
             { name: "VaultCord", url: 'https://api.vaultcord.com/webhooks/public-lookup/', method: 'GET', timeout: 5000, cooldown: 1000 },
-            { name: "NicheProwler", url: 'https://www.nicheprowler.com/api/discord/discord-id-lookup?id=', method: 'GET', timeout: 5000, cooldown: 5000 }, 
-            { name: "DiscordGate", url: 'https://discordgate.com/api/tools/lookup/applications/add', method: 'POST', timeout: 5000, cooldown: 2000 }
+            { name: "NicheProwler", url: 'https://www.nicheprowler.com/api/discord/discord-id-lookup?id=', method: 'GET', timeout: 5000, cooldown: 5000 }
         ];
 
-        // Track API ratelimits
-        let apiCooldowns = {
-            "Deno": 0,
-            "VaultCord": 0,
-            "NicheProwler": 0,
-            "DiscordGate": 0
+        let apiCooldowns = { "Deno": 0, "VaultCord": 0, "NicheProwler": 0, "DiscordGate": 0 };
+
+        const APP_FLAGS_MAP = {
+            1: "Embedded Released", 2: "Embedded Released", 4: "Managed Emoji", 8: "Embedded IAP",
+            16: "Group DM Create", 32: "RPC Private Beta", 64: "Auto Mod Rule Badge", 128: "Game Profile Disabled",
+            256: "Public OAuth2 Client", 512: "Contextless Activity", 1024: "Social Layer SDK Limited",
+            2048: "RPC Connected", 4096: "Gateway Presence", 8192: "Gateway Presence Limited",
+            16384: "Gateway Guild Members", 32768: "Gateway Guild Members Limited", 65536: "Verification Pending Limit",
+            131072: "Embedded", 262144: "Gateway Message Content", 524288: "Gateway Message Content Limited",
+            1048576: "Embedded First Party", 2097152: "App Command Migrated", 8388608: "App Command Badge",
+            16777216: "Active", 33554432: "Active Grace Period", 67108864: "IFrame Modal",
+            134217728: "Social Layer Integration", 536870912: "Promoted", 1073741824: "Partner"
         };
 
-        const GLOBAL_COOLDOWN_DURATION = 5000; 
-        const FAST_AUTO_CACHE_INTERVAL = 500; 
-
-        const WAYBACK_API_BASE = "https://web.archive.org/cdx/search/cdx";
-        const TARGET_URL_APP_INVITES = "https://discord.com/api/oauth2/authorize";
-        const API_PARAMS_COMMON_APP_INVITES = "matchType=prefix&collapse=urlkey&output=json&fl=original,mimetype,timestamp,endtimestamp,groupcount,uniqcount&filter=!statuscode:[45]..";
-        const API_PAGE_LIMIT_APP_INVITES = 10000;
-        const REQUEST_TIMEOUT_APP_INVITES = 30000;
-
-        async function initializeCache() {
+        // Utility: Extract exact creation date from Discord Snowflake
+        function getCreationDateFromSnowflake(id) {
             try {
-                const response = await fetch(encodeURIComponent(INITIAL_CACHE_URL));
-                if (!response.ok) return;
-                const cachedData = await response.json();
-                for (const id in cachedData) {
-                    if (Object.hasOwnProperty.call(cachedData, id)) {
-                        userLookupCache.set(id, cachedData[id]);
-                    }
-                }
-                statusArea.textContent = `Loaded ${userLookupCache.size} cached IDs from GitHub.`;
-            } catch (error) {
-                console.error('Error loading cache:', error);
-            }
+                const timestamp = Number((BigInt(id) >> 22n) + 1420070400000n);
+                const date = new Date(timestamp);
+                return `${date.toLocaleDateString(undefined, { year: 'numeric', month: 'short', day: 'numeric' })} at ${date.toLocaleTimeString(undefined, { hour: '2-digit', minute: '2-digit' })}`;
+            } catch (e) { return "Unknown Date"; }
         }
 
-        function checkDevMode() {
-            if (window.Dev === true || window.dev === true) {
-                developerSettingsButtonContainer.classList.add('visible');
-            } else {
-                developerSettingsButtonContainer.classList.remove('visible');
+        // Utility: Decode Bitwise Application Flags
+        function decodeAppFlags(flagsInt) {
+            const flags = [];
+            for (const [bit, name] of Object.entries(APP_FLAGS_MAP)) {
+                if ((BigInt(flagsInt) & BigInt(bit)) === BigInt(bit)) flags.push(name);
             }
+            return flags;
         }
 
-        window.addEventListener('load', () => {
-            initializeCache();
-            checkDevMode();
-            updateFastCacheToggleButtonState();
-        });
-        setInterval(checkDevMode, 1000);
-
-        async function fetchActivityData() {
-            setUiState('loading', '⏳ Fetching up to 40,000 activity records...');
-            const targetPattern = 'discord.com/api/v9/application-directory-static/applications/';
-            const waybackUrl = `${WAYBACK_API_BASE}?url=${targetPattern}&output=json&fl=original&limit=40000&matchType=prefix&filter=statuscode:200`;
-            const apiUrl = CORS_PROXY + encodeURIComponent(waybackUrl);
-
-            try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-                const data = await response.json();
-
-                if (!data || data.length <= 1) {
-                    setUiState('idle', 'No activity results found.');
-                    return;
-                }
-
-                statusArea.textContent = `✅ Fetched ${data.length - 1} activity records. Now filtering...`;
-
-                allFoundActivityIds.clear();
-                for (let i = 1; i < data.length; i++) {
-                    const url = data[i][0];
-                    if (!url) continue;
-                    const filterPattern = 'application-directory-static/applications/';
-                    const startIndex = url.indexOf(filterPattern);
-                    if (startIndex > -1) {
-                        const restOfUrl = url.substring(startIndex + filterPattern.length);
-                        const potentialId = restOfUrl.split('/')[0].split('?')[0];
-                        if (!isNaN(potentialId) && potentialId.length >= 17 && potentialId.length <= 20) {
-                            allFoundActivityIds.add(potentialId);
-                        }
-                    }
-                }
-                updateAndDisplayResults();
-                setUiState('idle', `Found ${allFoundActivityIds.size} unique activity IDs.`);
-            } catch (error) {
-                setUiState('error', `❌ Error fetching activity data: ${error.message}.`);
-            } finally {
-                closeFetchOptionsModal();
-            }
-        }
-
-        async function fetchDiscordInvitesJs(limitCount) {
-            setUiState('loading', `🔎 Fetching up to ${limitCount} application invites... This may take a while.`);
-            closeFetchOptionsModal();
-
-            let newlyFoundInvitesCount = 0;
-            let resumeKey = null;
-
-            const encodedTargetUrl = encodeURIComponent(TARGET_URL_APP_INVITES);
-
-            try {
-                while (newlyFoundInvitesCount < limitCount) {
-                    let waybackApiUrl = `${WAYBACK_API_BASE}?url=${encodedTargetUrl}&${API_PARAMS_COMMON_APP_INVITES}&limit=${API_PAGE_LIMIT_APP_INVITES}`;
-                    if (resumeKey) { waybackApiUrl += `&resumeKey=${resumeKey}`; }
-
-                    const response = await fetch(CORS_PROXY + encodeURIComponent(waybackApiUrl), {
-                        signal: AbortSignal.timeout(REQUEST_TIMEOUT_APP_INVITES)
-                    });
-
-                    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
-                    const cdxData = await response.json();
-
-                    resumeKey = response.headers.get('x-archive-wayback-cdx-remote-info');
-                    if (resumeKey) resumeKey = resumeKey.split(';')[0].trim();
-
-                    if (!cdxData || !Array.isArray(cdxData) || cdxData.length <= 1) break;
-
-                    const dataEntries = cdxData[0][0] === "original" ? cdxData : cdxData.slice(1);
-                    if (dataEntries.length === 0) break;
-
-                    for (const entry of dataEntries) {
-                        if (newlyFoundInvitesCount >= limitCount) break;
-                        if (!Array.isArray(entry) || entry.length < 1) continue;
-
-                        const fullUrlCleaned = entry[0].replace(/&amp%3B/g, "&");
-                        const clientIdMatch = fullUrlCleaned.match(/client_id=(\d+)/);
-                        if (!clientIdMatch) continue;
-
-                        const botId = clientIdMatch[1];
-                        if (!allFoundAppIds.has(botId)) {
-                             allFoundAppIds.add(botId);
-                             newlyFoundInvitesCount++;
-                             statusArea.textContent = `🔎 Found ${newlyFoundInvitesCount} application IDs...`;
-                        }
-                    }
-                    if (!resumeKey || newlyFoundInvitesCount >= limitCount) break;
-                }
-                updateAndDisplayResults();
-                setUiState('idle', `✅ Done! Found ${allFoundAppIds.size} unique application IDs.`);
-            }
-            catch (error) {
-                setUiState('error', `❌ Error fetching app data: ${error.message}.`);
-            }
-        }
-
-        async function fetchKnownIds() {
-            if (knownIds.size > 0) return true;
-            setUiState('loading', 'Fetching known IDs from GitHub...');
-            try {
-                const response = await fetch(CORS_PROXY + encodeURIComponent(GITHUB_URL));
-                if (!response.ok) throw new Error(`Fetch failed`);
-                const markdown = await response.text();
-                const idRegex = /^\|\s*[^|]*\s*\|\s*(\d{17,20})\s*\|/gm;
-                let match;
-                while ((match = idRegex.exec(markdown)) !== null) { knownIds.add(match[1]); }
-                setUiState('idle', `Loaded ${knownIds.size} known IDs. Filtering...`);
-                return true;
-            } catch (error) {
-                setUiState('error', `❌ Error: ${error.message}`);
-                return false;
-            }
+        function setUiState(state, message) {
+            if(message) statusArea.textContent = message;
         }
 
         function updateAndDisplayResults() {
             const combinedIds = new Set([...allFoundActivityIds, ...allFoundAppIds]);
             let filtered = Array.from(combinedIds).sort();
-
             if (isExcludingKnown) filtered = filtered.filter(id => !knownIds.has(id));
             if (isShowingUnlookedUp) filtered = filtered.filter(id => !userLookupCache.has(id));
-
             const searchQuery = searchBar.value.toLowerCase();
             if (searchQuery) filtered = filtered.filter(id => id.includes(searchQuery));
-
             currentVisibleIds = filtered;
             renderList(currentVisibleIds);
             statusArea.textContent = `Displaying ${currentVisibleIds.length} of ${combinedIds.size} total unique IDs.`;
@@ -612,10 +330,7 @@
 
         function renderList(ids) {
             resultsList.innerHTML = '';
-            if (ids.length === 0) {
-                resultsList.innerHTML = '<li class="text-center text-gray-500 p-4">No matching IDs found.</li>';
-                return;
-            }
+            if (ids.length === 0) { resultsList.innerHTML = '<li class="text-center text-gray-500 p-4">No matching IDs found.</li>'; return; }
 
             const fragment = document.createDocumentFragment();
             for (const id of ids) {
@@ -623,164 +338,104 @@
                 li.className = 'id-item flex flex-col p-2 rounded-md transition-all duration-200';
                 li.innerHTML = `
                     <div class="flex items-center justify-between">
-                        <a href="https://discord.com/developers/applications/${id}" target="_blank" class="text-gray-300 hover:text-white hover:underline">${id}</a>
-                        <div class="flex items-center gap-2">
-                            <button class="lookup-btn" data-id="${id}" title="Lookup User/Bot">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
-                                    <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
-                                    <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
-                                </svg>
+                        <a href="https://discord.com/developers/applications/${id}" target="_blank" class="text-gray-300 hover:text-white hover:underline truncate mr-2">${id}</a>
+                        <div class="flex items-center gap-1.5 flex-shrink-0">
+                            <button class="action-btn lookup-btn text-blue-400 hover:text-white" data-id="${id}" title="Lookup User/Bot">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/><path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/></svg>
                             </button>
-                            <button class="copy-invite-btn" data-id="${id}" title="Copy Invite Link">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
-                                    <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
-                                    <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
-                                </svg>
+                            <button class="action-btn dg-btn text-purple-400 hover:text-white" data-id="${id}" title="Fetch DiscordGate Info">
+                                <svg width="16" height="16" fill="currentColor" class="bi bi-hdd-network" viewBox="0 0 16 16"><path d="M4.5 5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1M3 4.5a.5.5 0 1 1-1 0 .5.5 0 0 1 1 0m11 2.5v-5a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1M3 2h10a.5.5 0 0 1 .5.5v5a.5.5 0 0 1-.5.5H3a.5.5 0 0 1-.5-.5v-5A.5.5 0 0 1 3 2"/><path d="M5 10v1h1a.5.5 0 0 1 0 1H4a.5.5 0 0 1 0-1h1v-1H2.5A1.5 1.5 0 0 0 1 11.5v3A1.5 1.5 0 0 0 2.5 16h11a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 13.5 10zM2.5 11h11a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5m.5 2.5a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1m2 0a.5.5 0 1 0 0-1 .5.5 0 0 0 0 1"/></svg>
+                            </button>
+                            <button class="action-btn inspect-btn text-green-400 hover:text-white" data-id="${id}" title="Inspect Profile">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
+                            </button>
+                            <button class="action-btn copy-invite-btn text-gray-300 hover:text-white" data-id="${id}" title="Copy Invite Link">
+                                <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/></svg>
                             </button>
                         </div>
                     </div>
                     <div id="lookup-info-${id}" class="user-info-container hidden"></div>
                 `;
                 fragment.appendChild(li);
-
-                if (userLookupCache.has(id)) {
-                    displayLookupInfo(userLookupCache.get(id), li.querySelector(`#lookup-info-${id}`));
-                }
+                if (userLookupCache.has(id)) displayLookupInfo(userLookupCache.get(id), li.querySelector(`#lookup-info-${id}`));
             }
             resultsList.appendChild(fragment);
         }
 
-        function setUiState(state, message) {
-            const els = [fetchButton, fetchActivitiesModalBtn, fetchAppsModalBtn, developerSettingsButton, autoCacheBtn, fastAutoCacheBtn, toggleFastCacheBtn, downloadCacheBtn, showUnlookedUpBtn];
-            els.forEach(el => {
-                if (state === 'loading') { el.disabled = true; el.classList.add('opacity-50'); }
-                else { el.disabled = false; el.classList.remove('opacity-50'); }
-            });
-            if(message) statusArea.textContent = message;
-        }
-
-        function copyToClipboard(text, buttonElement) {
-            const textarea = document.createElement('textarea');
-            textarea.value = text;
-            document.body.appendChild(textarea);
-            textarea.select();
-            try {
-                const successful = document.execCommand('copy');
-                const originalContent = buttonElement.innerHTML;
-                // Swap the button contents out gracefully, fixed CSS prevents stretching issues
-                buttonElement.innerHTML = `<span class="text-xs font-bold px-1">Copied!</span>`;
-                setTimeout(() => { buttonElement.innerHTML = originalContent; }, 2000);
-            } catch (err) {
-                console.error('Failed to copy:', err);
-            }
-            document.body.removeChild(textarea);
-        }
-
-        async function toggleExcludeKnown() {
-            if (!isExcludingKnown) {
-                const success = await fetchKnownIds();
-                if (!success) return;
-                isExcludingKnown = true;
-                excludeKnownButton.classList.add('exclude-btn-active');
-            } else {
-                isExcludingKnown = false;
-                excludeKnownButton.classList.remove('exclude-btn-active');
-            }
-            updateAndDisplayResults();
-        }
-
-        function toggleShowUnlookedUp() {
-            isShowingUnlookedUp = !isShowingUnlookedUp;
-            if (isShowingUnlookedUp) showUnlookedUpBtn.classList.add('exclude-btn-active');
-            else showUnlookedUpBtn.classList.remove('exclude-btn-active');
-            updateAndDisplayResults();
-        }
-
         function displayLookupInfo(data, infoContainer) {
             infoContainer.classList.remove('hidden');
-
             const id = data.id;
             const username = data.username || "Unknown";
             const discriminator = data.discriminator === "0" || !data.discriminator ? null : data.discriminator;
             const global_name = data.global_name || null;
             const avatar = data.avatar;
-            const isBot = data.bot !== false; // Default to true for apps
+            const isBot = data.bot !== false; 
             let publicFlags = data.public_flags || data.flags || 0;
             
             let userNameDisplay = discriminator ? `${username}#${discriminator}` : (global_name || username);
-            let avatarUrl = avatar ? `https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=256` : `https://cdn.discordapp.com/embed/avatars/${(parseInt(id) >> 22) % 6}.png`;
-            let tagsHtml = '';
+            let avatarHtml = avatar 
+                ? `<img src="https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=256" class="user-avatar" alt="">` 
+                : `<img src="https://cdn.discordapp.com/embed/avatars/${Number((BigInt(id) >> 22n) % 6n)}.png" class="user-avatar" alt="">`;
 
-            const DISCORD_CERTIFIED_MODERATOR_FLAG = 1 << 18;
-            const VERIFIED_BOT_FLAG = 1 << 16;
+            let tagsHtml = isBot 
+                ? `<span class="botTag__5d473">APP</span>` 
+                : `<span class="botTag__5d473" style="background-color: #7289da;">USER</span>`;
+                
+            if (publicFlags & (1 << 18)) tagsHtml += `<img src="${STAFF_BADGE_URL}" class="staff-badge" title="Discord Staff">`;
 
-            if (isBot) {
-                if ((publicFlags & VERIFIED_BOT_FLAG) || publicFlags === 65536 || publicFlags === 65537) {
-                    tagsHtml += `
-                        <span class="botTag__5d473 botTagRegular__82f07 botTag__82f07 px__82f07">
-                            <svg aria-label="Verified App" class="botTagVerified__82f07" aria-hidden="false" role="img" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path fill="white" fill-rule="evenodd" d="M19.06 6.94a1.5 1.5 0 0 1 0 2.12l-8 8a1.5 1.5 0 0 1-2.12 0l-4-4a1.5 1.5 0 0 1 2.12-2.12L10 13.88l6.94-6.94a1.5 1.5 0 0 1 2.12 0Z" clip-rule="evenodd" class=""></path></svg>
-                            <span class="botText__82f07">APP</span>
-                        </span>
-                    `;
-                } else {
-                    tagsHtml += `<span class="botTag__5d473 botTagRegular__82f07 botTag__82f07 px__82f07"><span class="botText__82f07">APP</span></span>`;
-                }
-            } else {
-                tagsHtml += `<span class="botTag__5d473 botTagRegular__82f07 botTag__82f07 px__82f07" style="background-color: #7289da;"><span class="botText__82f07">USER</span></span>`;
+            infoContainer.innerHTML = `${avatarHtml} <span>${userNameDisplay}</span> ${tagsHtml}`;
+            
+            const copyInviteBtn = infoContainer.closest('.id-item')?.querySelector('.copy-invite-btn');
+            if (copyInviteBtn) copyInviteBtn.style.display = isBot ? '' : 'none';
+        }
+
+        async function fetchDiscordGate(id, infoContainer) {
+            const now = Date.now();
+            if (now < apiCooldowns["DiscordGate"]) return false;
+
+            if (infoContainer) {
+                infoContainer.innerHTML = '<span class="text-purple-400">Fetching DiscordGate...</span>';
+                infoContainer.classList.remove('hidden');
             }
 
-            if (publicFlags & DISCORD_CERTIFIED_MODERATOR_FLAG) {
-                tagsHtml += `<img src="${STAFF_BADGE_URL}" alt="Staff" class="staff-badge" title="Discord Certified Moderator">`;
-            }
+            try {
+                const response = await fetch(CORS_PROXY + encodeURIComponent('https://discordgate.com/api/tools/lookup/applications/add'), {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ botId: id, fingerprint: "" }),
+                    signal: AbortSignal.timeout(5000)
+                });
+                
+                if (response.status === 429) { apiCooldowns["DiscordGate"] = now + 10000; return false; }
+                if (!response.ok) throw new Error("HTTP " + response.status);
 
-            infoContainer.innerHTML = `<img src="${avatarUrl}" class="user-avatar" alt="Avatar"><span>${userNameDisplay}</span>${tagsHtml}`;
+                const raw = await response.json();
+                if (!raw.botData) throw new Error("No bot data");
+                
+                const d = raw.botData;
+                let existing = userLookupCache.get(id) || { id, bot: true };
+                
+                // Merge Data cleanly without overwriting primary profile
+                if(!existing.username) existing.username = d.name;
+                if(!existing.avatar) existing.avatar = d.icon;
+                if(!existing.flags) existing.flags = d.flags;
+                
+                existing.is_monetized = d.is_monetized;
+                existing.install_params = d.install_params;
+                existing.storefront_available = d.storefront_available;
+                existing.is_verified = d.is_verified;
 
-            const parentLi = infoContainer.closest('.id-item');
-            if (parentLi) {
-                const copyInviteBtn = parentLi.querySelector('.copy-invite-btn');
-                if (copyInviteBtn) copyInviteBtn.style.display = isBot ? '' : 'none';
+                userLookupCache.set(id, existing);
+                if (infoContainer) displayLookupInfo(existing, infoContainer);
+                return true;
+
+            } catch(e) {
+                apiCooldowns["DiscordGate"] = now + 2000;
+                if (infoContainer) infoContainer.innerHTML = `<span class="text-red-400">DG Failed</span>`;
+                return false;
             }
         }
 
-        // STANDARDIZES ALL API RESPONSES INTO DENO FORMAT
-        function normalizeData(sourceName, rawData, id) {
-            let normalized = {
-                id: id,
-                username: "Unknown",
-                discriminator: null,
-                avatar: null,
-                bot: true, 
-                public_flags: 0,
-                flags: 0,
-                global_name: null
-            };
-
-            if (sourceName === "Deno" || sourceName === "VaultCord") {
-                return Object.assign(normalized, rawData);
-            } else if (sourceName === "NicheProwler") {
-                if (!rawData.success || !rawData.data) throw new Error("NicheProwler missing data");
-                let d = rawData.data;
-                normalized.username = d.username || "Unknown";
-                normalized.discriminator = d.discriminator || null;
-                normalized.avatar = d.avatar || null;
-                normalized.bot = d.is_bot !== undefined ? d.is_bot : true;
-                normalized.flags = d.flags || 0;
-                normalized.public_flags = d.flags || 0;
-                normalized.global_name = d.global_name || null;
-                return normalized;
-            } else if (sourceName === "DiscordGate") {
-                if (!rawData.botData) throw new Error("DiscordGate missing botData");
-                let d = rawData.botData;
-                normalized.username = d.name || "Unknown";
-                normalized.avatar = d.icon || null;
-                normalized.flags = d.flags || 0;
-                normalized.public_flags = d.flags || 0;
-                return normalized;
-            }
-            return normalized;
-        }
-
-        // WATERFALL LOOKUP LOGIC
         async function lookupBot(id, infoContainer) {
             if (!isFastCacheDisabled && userLookupCache.has(id)) {
                 displayLookupInfo(userLookupCache.get(id), infoContainer);
@@ -789,233 +444,117 @@
 
             infoContainer.innerHTML = '<span class="text-gray-400">Loading...</span>';
             infoContainer.classList.remove('hidden');
-
             const now = Date.now();
-            let lastError = "All services failed or rate-limited.";
 
             for (const api of LOOKUP_APIS) {
-                if (now < apiCooldowns[api.name]) continue; // Skip if on penalty cooldown
-
+                if (now < apiCooldowns[api.name]) continue;
                 try {
-                    let fetchOptions = {
-                        signal: AbortSignal.timeout(api.timeout),
-                        headers: {}
-                    };
+                    let fetchOptions = { signal: AbortSignal.timeout(api.timeout), headers: {} };
+                    if (api.name === 'VaultCord') fetchOptions.headers['User-Agent'] = 'Mozilla/5.0'; 
+                    const response = await fetch(CORS_PROXY + encodeURIComponent(api.url + id), fetchOptions);
 
-                    let targetUrl = api.url;
-                    if (api.method === 'POST') {
-                        fetchOptions.method = 'POST';
-                        fetchOptions.headers['Content-Type'] = 'application/json';
-                        if (api.name === 'DiscordGate') fetchOptions.body = JSON.stringify({ botId: id, fingerprint: "" });
-                    } else {
-                        targetUrl += id;
-                    }
-
-                    if (api.name === 'VaultCord') {
-                        // Pass mock user-agent just in case it bypasses the proxy
-                        fetchOptions.headers['User-Agent'] = 'Mozilla/5.0'; 
-                    }
-
-                    const response = await fetch(CORS_PROXY + encodeURIComponent(targetUrl), fetchOptions);
-
-                    if (response.status === 429) {
-                        apiCooldowns[api.name] = now + (api.cooldown * 10); // Heavy penalty for hitting 429
-                        continue; 
-                    }
+                    if (response.status === 429) { apiCooldowns[api.name] = now + (api.cooldown * 5); continue; }
                     if (!response.ok) throw new Error(`HTTP ${response.status}`);
 
-                    const rawData = await response.json();
-                    const cleanData = normalizeData(api.name, rawData, id);
+                    let rawData = await response.json();
+                    if(api.name === "NicheProwler") rawData = rawData.data;
 
-                    userLookupCache.set(id, cleanData);
-                    displayLookupInfo(cleanData, infoContainer);
+                    let cleanData = {
+                        id, username: rawData.username || "Unknown",
+                        discriminator: rawData.discriminator || null, avatar: rawData.avatar || null,
+                        bot: rawData.bot !== false, public_flags: rawData.public_flags || rawData.flags || 0,
+                        flags: rawData.flags || 0, global_name: rawData.global_name || null,
+                        banner: rawData.banner || null, banner_color: rawData.banner_color || null
+                    };
+
+                    let existing = userLookupCache.get(id) || {};
+                    userLookupCache.set(id, { ...existing, ...cleanData });
+                    displayLookupInfo(userLookupCache.get(id), infoContainer);
                     return true;
-
-                } catch (err) {
-                    apiCooldowns[api.name] = now + api.cooldown; // Brief penalty on timeout/error
-                    lastError = `${api.name} failed.`;
-                }
+                } catch (err) { apiCooldowns[api.name] = now + api.cooldown; }
             }
-
-            infoContainer.innerHTML = `<span class="text-red-400">Failed to lookup</span>`;
+            infoContainer.innerHTML = `<span class="text-red-400">Lookup Failed</span>`;
             return false;
         }
 
-        async function toggleAutoCache() {
-            if (isAutoCaching) {
-                stopAllAutoCaching();
-                statusArea.textContent = `Auto-cache stopped. Cached ${userLookupCache.size} IDs.`;
-            } else if (isFastAutoCaching) {
-                alert("Fast auto-cache is currently running. Please stop it first.");
-            } else {
-                if (currentVisibleIds.length === 0) return alert("No IDs loaded to auto-cache.");
-                isAutoCaching = true;
-                autoCacheBtn.textContent = 'Stop Auto-Cache';
-                autoCacheIndex = 0;
-                statusArea.textContent = `Auto-cache starting...`;
-
-                autoCacheInterval = setInterval(async () => {
-                    if (autoCacheIndex < currentVisibleIds.length) {
-                        const idToLookup = currentVisibleIds[autoCacheIndex];
-                        const infoContainer = document.getElementById(`lookup-info-${idToLookup}`);
-                        if (!userLookupCache.has(idToLookup)) {
-                            statusArea.textContent = `Auto-caching: Looking up ${idToLookup} (${autoCacheIndex + 1}/${currentVisibleIds.length})...`;
-                            await lookupBot(idToLookup, infoContainer);
-                        } else {
-                            displayLookupInfo(userLookupCache.get(idToLookup), infoContainer);
-                        }
-                        autoCacheIndex++;
-                    } else {
-                        stopAllAutoCaching();
-                        statusArea.textContent = `Auto-cache complete! Total cached: ${userLookupCache.size}.`;
-                    }
-                }, GLOBAL_COOLDOWN_DURATION + 500);
-            }
-        }
-
-        async function toggleFastAutoCache() {
-            if (isFastAutoCaching) {
-                stopAllAutoCaching();
-                statusArea.textContent = `Fast auto-cache stopped. Cached ${userLookupCache.size} IDs.`;
-            } else if (isAutoCaching) {
-                 alert("Normal auto-cache is currently running.");
-            } else {
-                if (currentVisibleIds.length === 0) return alert("No IDs loaded to auto-cache.");
-                isFastAutoCaching = true;
-                fastAutoCacheBtn.textContent = 'Stop 1/500ms Lookup';
-                autoCacheIndex = 0;
-                statusArea.textContent = `Fast auto-cache starting (1/500ms)...`;
-
-                autoCacheInterval = setInterval(async () => {
-                    if (autoCacheIndex < currentVisibleIds.length) {
-                        const idToLookup = currentVisibleIds[autoCacheIndex];
-                        const infoContainer = document.getElementById(`lookup-info-${idToLookup}`);
-                        if (isFastCacheDisabled || !userLookupCache.has(idToLookup)) {
-                            statusArea.textContent = `Fast auto-caching: Looking up ${idToLookup} (${autoCacheIndex + 1}/${currentVisibleIds.length})...`;
-                            await lookupBot(idToLookup, infoContainer);
-                        } else {
-                            displayLookupInfo(userLookupCache.get(idToLookup), infoContainer);
-                        }
-                        autoCacheIndex++;
-                    } else {
-                        stopAllAutoCaching();
-                        statusArea.textContent = `Fast auto-cache complete! Total cached: ${userLookupCache.size}.`;
-                    }
-                }, FAST_AUTO_CACHE_INTERVAL);
-            }
-        }
-
-        function stopAllAutoCaching() {
-            if (autoCacheInterval) clearInterval(autoCacheInterval);
-            autoCacheInterval = null;
-            isAutoCaching = false;
-            isFastAutoCaching = false;
-            autoCacheBtn.textContent = 'Start Auto-Cache';
-            fastAutoCacheBtn.textContent = '1/500ms Lookup';
-        }
-
-        function updateFastCacheToggleButtonState() {
-            if (isFastCacheDisabled) {
-                toggleFastCacheBtn.classList.add('toggle-btn-active');
-                toggleFastCacheBtn.setAttribute('title', 'Fast lookup will bypass cache.');
-            } else {
-                toggleFastCacheBtn.classList.remove('toggle-btn-active');
-                toggleFastCacheBtn.setAttribute('title', 'Fast lookup will check cache first.');
-            }
-        }
-
-        function toggleFastCacheDisable() {
-            isFastCacheDisabled = !isFastCacheDisabled;
-            updateFastCacheToggleButtonState();
-        }
-
-        function downloadCachedLookups() {
-            if (userLookupCache.size === 0) return alert("No lookup data to download.");
-            const dataToSave = {};
-            userLookupCache.forEach((value, key) => dataToSave[key] = value);
+        async function openProfileModal(id) {
+            const modal = document.getElementById('profile-modal');
+            const infoContainer = document.getElementById(`lookup-info-${id}`);
             
-            const jsonString = JSON.stringify(dataToSave, null, 2);
-            const blob = new Blob([jsonString], { type: 'application/json' });
-            const url = URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = `discord_lookup_cache_${new Date().toISOString().split('T')[0]}.json`;
-            document.body.appendChild(a);
-            a.click();
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
+            // Ensure data exists, if not, do a lookup first
+            if (!userLookupCache.has(id)) await lookupBot(id, infoContainer);
+            const data = userLookupCache.get(id);
+            if (!data) return;
+
+            // Header/Core Info
+            const nameEl = document.getElementById('profile-name');
+            const nameDisplay = data.discriminator ? `${data.username}<span class="text-gray-400 text-lg">#${data.discriminator}</span>` : (data.global_name || data.username);
+            let badges = data.bot !== false ? `<span class="botTag__5d473 text-sm px-2 py-0.5">APP</span>` : '';
+            nameEl.innerHTML = `${nameDisplay} ${badges}`;
+            
+            document.getElementById('profile-creation').textContent = `Created ${getCreationDateFromSnowflake(id)}`;
+
+            // Avatar & Banner
+            const avatarEl = document.getElementById('profile-avatar');
+            avatarEl.src = data.avatar ? `https://cdn.discordapp.com/avatars/${id}/${data.avatar}.png?size=1024` : `https://cdn.discordapp.com/embed/avatars/${Number((BigInt(id) >> 22n) % 6n)}.png`;
+            
+            const bannerEl = document.getElementById('profile-banner');
+            if (data.banner) bannerEl.style.cssText = `background-image: url('https://cdn.discordapp.com/banners/${id}/${data.banner}.png?size=1024'); background-color: transparent;`;
+            else if (data.banner_color) bannerEl.style.cssText = `background-image: none; background-color: ${data.banner_color};`;
+            else bannerEl.style.cssText = `background-image: none; background-color: #393c43;`;
+
+            // App Flags
+            const flags = decodeAppFlags(data.flags || data.public_flags || 0);
+            const flagsContainer = document.getElementById('profile-flags-container');
+            const flagsList = document.getElementById('profile-flags-list');
+            if (flags.length > 0) {
+                flagsContainer.classList.remove('hidden');
+                flagsList.innerHTML = flags.map(f => `<span class="flag-pill">${f}</span>`).join('');
+            } else flagsContainer.classList.add('hidden');
+
+            // DiscordGate Extra Info
+            const dgContainer = document.getElementById('profile-dg-info');
+            const dgContent = document.getElementById('profile-dg-content');
+            if (data.install_params || data.is_monetized !== undefined) {
+                dgContainer.classList.remove('hidden');
+                let dgHtml = ``;
+                if(data.is_verified) dgHtml += `<div>✅ Verified Application</div>`;
+                if(data.is_monetized) dgHtml += `<div>💰 Monetized / Premium Available</div>`;
+                if(data.storefront_available) dgHtml += `<div>🛒 Storefront Enabled</div>`;
+                if(data.install_params && data.install_params.scopes) {
+                    dgHtml += `<div class="mt-2 text-xs text-gray-500">OAuth Scopes:</div>
+                               <div class="flex flex-wrap gap-1 mt-1">${data.install_params.scopes.map(s => `<span class="bg-[#2b2d31] px-1.5 py-0.5 rounded text-gray-300 text-xs border border-gray-600">${s}</span>`).join('')}</div>`;
+                }
+                dgContent.innerHTML = dgHtml || '<i>No specific backend features detected.</i>';
+            } else dgContainer.classList.add('hidden');
+
+            modal.classList.remove('hidden');
         }
 
-        function openFetchOptionsModal() {
-            fetchOptionsModal.classList.remove('hidden');
-            fetchAppsWarning.classList.add('hidden');
-            if (fetchAppsDoubleCheckTimer) clearTimeout(fetchAppsDoubleCheckTimer);
-        }
+        // Global Event Delegation for buttons in the list
+        resultsList.addEventListener('click', async (e) => {
+            const btn = e.target.closest('.action-btn');
+            if (!btn) return;
+            const id = btn.dataset.id;
+            const infoContainer = document.getElementById(`lookup-info-${id}`);
 
-        function closeFetchOptionsModal() {
-            fetchOptionsModal.classList.add('hidden');
-            fetchAppsWarning.classList.add('hidden');
-            if (fetchAppsDoubleCheckTimer) clearTimeout(fetchAppsDoubleCheckTimer);
-        }
-
-        function openDevSettingsModal() { devSettingsModal.classList.remove('hidden'); }
-        function closeDevSettingsModal() { 
-            devSettingsModal.classList.add('hidden');
-            stopAllAutoCaching(); 
-        }
-
-        fetchButton.addEventListener('click', openFetchOptionsModal);
-        closeFetchModalBtn.addEventListener('click', closeFetchOptionsModal);
-        closeDevModalBtn.addEventListener('click', closeDevSettingsModal);
-        fetchActivitiesModalBtn.addEventListener('click', fetchActivityData);
-        fetchAppsModalBtn.addEventListener('click', () => {
-            if (fetchAppsDoubleCheckTimer) {
-                clearTimeout(fetchAppsDoubleCheckTimer);
-                fetchAppsDoubleCheckTimer = null;
-                fetchAppsWarning.classList.add('hidden');
-                fetchDiscordInvitesJs(2000);
-            } else {
-                fetchAppsWarning.classList.remove('hidden');
-                fetchAppsDoubleCheckTimer = setTimeout(() => {
-                    fetchAppsWarning.classList.add('hidden');
-                    fetchAppsDoubleCheckTimer = null;
-                }, FETCH_APPS_DOUBLE_CLICK_TIMEOUT);
-            }
+            if (btn.classList.contains('copy-invite-btn')) {
+                const textarea = document.createElement('textarea');
+                textarea.value = `https://discord.com/api/oauth2/authorize?client_id=${id}&scope=bot`;
+                document.body.appendChild(textarea); textarea.select(); document.execCommand('copy'); document.body.removeChild(textarea);
+                const original = btn.innerHTML; btn.innerHTML = `<span class="text-xs font-bold px-1">Copied!</span>`; setTimeout(() => btn.innerHTML = original, 2000);
+            } 
+            else if (btn.classList.contains('lookup-btn')) { lookupBot(id, infoContainer); }
+            else if (btn.classList.contains('dg-btn')) { fetchDiscordGate(id, infoContainer); }
+            else if (btn.classList.contains('inspect-btn')) { openProfileModal(id); }
         });
 
-        developerSettingsButton.addEventListener('click', openDevSettingsModal);
-        autoCacheBtn.addEventListener('click', toggleAutoCache);
-        fastAutoCacheBtn.addEventListener('click', toggleFastAutoCache);
-        toggleFastCacheBtn.addEventListener('click', toggleFastCacheDisable);
-        downloadCacheBtn.addEventListener('click', downloadCachedLookups);
-        showUnlookedUpBtn.addEventListener('click', toggleShowUnlookedUp);
-        searchBar.addEventListener('input', updateAndDisplayResults);
-        excludeKnownButton.addEventListener('click', toggleExcludeKnown);
-
-        copyIdsButton.addEventListener('click', () => {
-            if (currentVisibleIds.length === 0) return;
-            copyToClipboard(currentVisibleIds.join('\n'), copyIdsButton);
-        });
-
-        copyInvitesButton.addEventListener('click', () => {
-            if (currentVisibleIds.length === 0) return alert("No IDs available.");
-            const invites = currentVisibleIds.map(id => `https://discord.com/api/oauth2/authorize?client_id=${id}&scope=bot`).join('\n');
-            copyToClipboard(invites, copyInvitesButton);
-        });
-
-        resultsList.addEventListener('click', (e) => {
-            const copyInviteButton = e.target.closest('.copy-invite-btn');
-            if (copyInviteButton) {
-                const id = copyInviteButton.dataset.id;
-                copyToClipboard(`https://discord.com/api/oauth2/authorize?client_id=${id}&scope=bot`, copyInviteButton);
-            }
-
-            const lookupButton = e.target.closest('.lookup-btn');
-            if (lookupButton) {
-                const id = lookupButton.dataset.id;
-                lookupBot(id, document.getElementById(`lookup-info-${id}`));
-            }
-        });
+        // Close Modals
+        document.getElementById('close-profile-modal-btn').addEventListener('click', () => document.getElementById('profile-modal').classList.add('hidden'));
+        document.getElementById('fetch-button').addEventListener('click', () => { document.getElementById('fetch-options-modal').classList.remove('hidden'); });
+        document.getElementById('close-fetch-modal-btn').addEventListener('click', () => { document.getElementById('fetch-options-modal').classList.add('hidden'); });
+        document.getElementById('developer-settings-button').addEventListener('click', () => { document.getElementById('dev-settings-modal').classList.remove('hidden'); });
+        document.getElementById('close-dev-modal-btn').addEventListener('click', () => { document.getElementById('dev-settings-modal').classList.add('hidden'); });
     </script>
 </body>
 </html>
