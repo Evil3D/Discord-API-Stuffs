@@ -18,69 +18,64 @@
         ::-webkit-scrollbar-thumb:hover { background: #5c626b; }
         .id-item:hover { background-color: #393c43; }
 
-        /* General button styling */
         .control-btn {
             background-color: #404249;
-            transition: background-color 0.2s, transform 0.1s;
+            transition: background-color 0.2s, transform 0.1s, width 0.2s;
             border-radius: 8px;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
-            height: 60px; /* Fatter height */
-            padding: 8px 16px; /* Default padding for horizontal buttons */
-            white-space: nowrap; /* Prevent text wrapping by default */
+            height: 60px;
+            padding: 8px 16px;
+            white-space: nowrap;
             font-size: 1rem;
-            flex-shrink: 0; /* Prevent shrinking below content size */
-            flex-grow: 1; /* Allow buttons to grow and fill space */
-            min-width: 100px; /* A sensible minimum width for horizontal buttons */
+            flex-shrink: 0;
+            flex-grow: 1;
+            min-width: 100px;
         }
         .control-btn:hover { background-color: #4f545c; }
         .control-btn:active { transform: scale(0.95); }
 
-        /* Specific style for buttons that *should* have stacked text */
         .control-btn.stacked-text-button {
-            flex-direction: column; /* Stack text vertically */
-            gap: 2px; /* Small gap between stacked lines */
-            font-size: 0.875rem; /* Slightly smaller font for stacked text */
-            line-height: 1.2; /* Adjust line height for stacked text */
-            padding: 8px; /* Adjust padding for more square-like appearance */
-            white-space: normal; /* Allow text to wrap for stacking */
-            flex-basis: auto; /* Allow content to determine base width */
-            min-width: 60px; /* Minimum width for stacked text buttons */
+            flex-direction: column;
+            gap: 2px;
+            font-size: 0.875rem;
+            line-height: 1.2;
+            padding: 8px;
+            white-space: normal;
+            flex-basis: auto;
+            min-width: 60px;
         }
         .control-btn.stacked-text-button span {
-            display: block; /* Ensure each part of stacked text is on its own line */
+            display: block;
         }
 
-        /* Fetch button special styling for emphasis */
         #fetch-button {
-            min-width: 120px; /* Make fetch button a bit wider than others */
-            flex-grow: 1.5; /* Allow it to grow more */
+            min-width: 120px;
+            flex-grow: 1.5;
         }
 
-        /* Dev button specific styling */
         .control-btn.dev-button {
-            flex-direction: column; /* Stack icon and text */
-            gap: 4px; /* Space between icon and text */
-            padding: 8px; /* Ensure it remains square-like */
-            min-width: 60px; /* Make it visually square */
-            flex-grow: 0; /* Don't allow it to grow much horizontally */
+            flex-direction: column;
+            gap: 4px;
+            padding: 8px;
+            min-width: 60px;
+            flex-grow: 0;
             flex-shrink: 0;
-            font-size: 0.875rem; /* Smaller font for "Dev" */
+            font-size: 0.875rem;
         }
         .control-btn.dev-button svg {
-            width: 20px; /* Adjust icon size if needed */
+            width: 20px;
             height: 20px;
         }
 
         .exclude-btn-active {
-            background-color: #2d7d46; /* Green when active */
+            background-color: #2d7d46;
             color: white;
         }
         .exclude-btn-active:hover { background-color: #399254; }
 
-        /* Styles for the bot tags and user info */
         .botTag__5d473 {
             display: inline-flex;
             align-items: center;
@@ -91,7 +86,7 @@
             line-height: 12px;
             text-transform: uppercase;
             color: #dcddde;
-            background-color: #5865f2; /* Discord blue */
+            background-color: #5865f2;
             margin-left: 8px;
         }
         .botTagVerified__82f07 {
@@ -121,24 +116,22 @@
             width: 24px;
             height: 24px;
             border-radius: 50%;
-            object-fit: cover; /* Ensures the image covers the area without distortion */
+            object-fit: cover;
         }
 
-        /* Global Error Popup Styles */
         #global-error-popup {
-            top: -50px; /* Hidden above the screen */
+            top: -50px;
             transform: translateX(-50%);
-            background-color: #b22222; /* Darker red for cooldown */
-            transition: all 0.3s ease-in-out, background-color 0.3s ease-in-out; /* Smooth transition for color */
+            background-color: #b22222;
+            transition: all 0.3s ease-in-out, background-color 0.3s ease-in-out;
         }
         #global-error-popup.show {
-            top: 20px; /* Visible position */
+            top: 20px;
         }
         #global-error-popup.ready {
-            background-color: #2d7d46; /* Green for ready state */
+            background-color: #2d7d46;
         }
 
-        /* Modal Styles */
         .modal-overlay {
             position: fixed;
             top: 0;
@@ -159,7 +152,7 @@
             text-align: center;
             max-width: 400px;
             width: 90%;
-            position: relative; /* For close button positioning */
+            position: relative;
         }
         .modal-button {
             display: block;
@@ -169,10 +162,10 @@
             border-radius: 8px;
             font-weight: 600;
             transition: background-color 0.2s, transform 0.1s;
-            height: 60px; /* Make modal buttons fatter */
-            display: flex; /* Use flex for centering text */
-            align-items: center; /* Center text vertically */
-            justify-content: center; /* Center text horizontally */
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .modal-button:last-child {
             margin-bottom: 0;
@@ -204,66 +197,65 @@
             cursor: pointer;
         }
 
-        /* Dynamic Layout CSS */
         .controls-flex-container {
             display: flex;
             align-items: center;
-            gap: 8px; /* Tailwind's gap-2 */
-            transition: all 0.3s ease-in-out; /* Animate container properties */
+            gap: 8px;
+            transition: all 0.3s ease-in-out;
         }
         .search-bar-flex {
-            flex-grow: 1; /* Search bar takes available space by default */
+            flex-grow: 1;
             transition: flex-grow 0.3s ease-in-out;
         }
         .buttons-group {
-            display: flex; /* Use flex for main buttons */
-            gap: 8px; /* gap-2 */
-            transition: all 0.3s ease-in-out; /* Animate button group properties */
-            flex-shrink: 0; /* Prevent buttons from shrinking too much */
+            display: flex;
+            gap: 8px;
+            transition: all 0.3s ease-in-out;
+            flex-shrink: 0;
         }
 
         .developer-settings-button-container {
             opacity: 0;
-            width: 0; /* Initially no width */
-            overflow: hidden; /* Hide content */
+            width: 0;
+            overflow: hidden;
             transition: opacity 0.3s ease-in-out, width 0.3s ease-in-out;
-            pointer-events: none; /* Make it unclickable when hidden */
-            flex-shrink: 0; /* Prevent it from shrinking */
+            pointer-events: none;
+            flex-shrink: 0;
         }
         .developer-settings-button-container.visible {
             opacity: 1;
-            width: auto; /* Allow width to expand */
-            pointer-events: auto; /* Make it clickable when visible */
-            margin-left: 8px; /* Add margin when visible */
+            width: auto;
+            pointer-events: auto;
+            margin-left: 8px;
         }
-        /* Search bar specific styling for height */
         .search-bar-input {
-            height: 60px; /* Match fatter button height */
+            height: 60px;
             padding-top: 0.5rem;
             padding-bottom: 0.5rem;
             font-size: 1rem;
         }
 
-        /* Custom styling for the lookup/copy buttons within results list */
+        /* Fixed CSS: width is max-content instead of strict 32px so "Copied!" text fits nicely */
         .lookup-btn, .copy-invite-btn {
-            height: 32px; /* Smaller for internal use */
-            width: 32px; /* Smaller for internal use */
-            padding: 4px;
+            height: 32px;
+            min-width: 32px;
+            width: max-content; 
+            padding: 4px 8px;
             border-radius: 4px;
             display: flex;
             align-items: center;
             justify-content: center;
             background-color: #404249;
+            transition: background-color 0.2s, width 0.2s ease;
         }
         .lookup-btn:hover, .copy-invite-btn:hover {
             background-color: #4f545c;
         }
 
-        /* No Cache Button in Dev Modal */
         #toggle-fast-cache-btn {
-            height: 60px; /* Match the height of other modal buttons */
-            font-size: 1rem; /* Consistent font size */
-            padding: 0 16px; /* Restore horizontal padding */
+            height: 60px;
+            font-size: 1rem;
+            padding: 0 16px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -271,11 +263,11 @@
             flex-shrink: 0;
             color: white;
         }
-        #toggle-fast-cache-btn.toggle-btn-active { /* When active (bypassing cache) */
-            background-color: #2d7d46; /* Green */
+        #toggle-fast-cache-btn.toggle-btn-active {
+            background-color: #2d7d46;
         }
-        #toggle-fast-cache-btn:not(.toggle-btn-active) { /* When inactive (using cache) */
-            background-color: #ed4245; /* Red */
+        #toggle-fast-cache-btn:not(.toggle-btn-active) {
+            background-color: #ed4245;
         }
         #toggle-fast-cache-btn:hover.toggle-btn-active {
             background-color: #399254;
@@ -284,56 +276,49 @@
             background-color: #d33538;
         }
 
-
-        /* Mobile adjustments */
-        @media (max-width: 768px) { /* md breakpoint in Tailwind */
+        @media (max-width: 768px) {
             .controls-flex-container {
                 flex-direction: column;
                 align-items: stretch;
             }
             .buttons-group {
-                flex-wrap: wrap; /* Allow buttons to wrap */
-                width: 100%; /* Take full width below search bar */
+                flex-wrap: wrap;
+                width: 100%;
             }
             .buttons-group .control-btn {
-                flex-grow: 1; /* Allow buttons to grow on mobile */
-                flex-basis: calc(50% - 4px); /* Roughly 2 columns, accounting for gap */
-                max-width: calc(50% - 4px); /* Max width for 2 columns */
-                white-space: nowrap; /* Prevent stacking on mobile if not explicitly stacked */
+                flex-grow: 1;
+                flex-basis: calc(50% - 4px);
+                max-width: calc(50% - 4px);
+                white-space: nowrap;
             }
-            /* Stacked text buttons should stay stacked */
             .buttons-group .control-btn.stacked-text-button {
                 flex-direction: column;
                 white-space: normal;
-                flex-basis: auto; /* Let content determine base width, but flex-grow will stretch it */
+                flex-basis: auto;
             }
             #fetch-button {
-                min-width: unset; /* Remove min-width override on mobile */
-                flex-grow: 1; /* Equal grow on mobile */
-                flex-basis: calc(50% - 4px); /* Stick to 2 columns */
+                min-width: unset;
+                flex-grow: 1;
+                flex-basis: calc(50% - 4px);
             }
             .developer-settings-button-container.visible {
-                width: 100%; /* Take full width on mobile when visible */
-                margin-left: 0; /* Remove margin on mobile */
+                width: 100%;
+                margin-left: 0;
             }
-            /* Dev button on mobile */
             .developer-settings-button {
-                flex-grow: 1; /* Allow it to grow on mobile */
-                flex-basis: calc(50% - 4px); /* Share space */
-                max-width: calc(50% - 4px); /* Max width */
-                min-width: unset; /* Remove min-width to allow shrinking on small screens */
+                flex-grow: 1;
+                flex-basis: calc(50% - 4px);
+                max-width: calc(50% - 4px);
+                min-width: unset;
             }
         }
     </style>
 </head>
 <body class="flex items-center justify-center min-h-screen p-4">
 
-    <!-- Global Error Popup -->
     <div id="global-error-popup" class="fixed top-[-50px] left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-2 rounded-lg shadow-lg transition-all duration-300 z-50">
-        <!-- Message will be dynamically set by JS -->
     </div>
 
-    <!-- Fetch Options Modal -->
     <div id="fetch-options-modal" class="modal-overlay hidden">
         <div class="modal-content relative">
             <button class="modal-close-btn" id="close-fetch-modal-btn">&times;</button>
@@ -346,7 +331,6 @@
         </div>
     </div>
 
-    <!-- Developer Settings Modal -->
     <div id="dev-settings-modal" class="modal-overlay hidden">
         <div class="modal-content relative">
             <button class="modal-close-btn" id="close-dev-modal-btn">&times;</button>
@@ -362,26 +346,20 @@
     </div>
 
     <div class="w-full max-w-5xl h-[90vh] bg-[#2b2d31] rounded-xl shadow-2xl flex flex-col p-6">
-        <!-- Header -->
         <header class="pb-4 border-b border-gray-700">
             <h1 class="text-2xl font-bold text-white">Discord Application ID Finder</h1>
             <p class="text-sm text-gray-400">Fetches and displays application IDs from the Wayback Machine.</p>
         </header>
 
-        <!-- Controls -->
         <div class="controls-flex-container py-4">
-            <!-- Search Bar -->
             <div class="search-bar-flex">
                 <input type="text" id="search-bar" placeholder="🔍 Search for an ID..." class="w-full bg-[#1e1f22] border border-gray-600 rounded-lg px-4 py-2 text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition search-bar-input">
             </div>
-
-            <!-- Buttons Group -->
             <div id="buttons-group" class="buttons-group">
                  <button id="fetch-button" class="control-btn bg-blue-600 hover:bg-blue-700 text-white font-bold transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500">Fetch</button>
                  <button id="exclude-known-button" class="control-btn stacked-text-button text-white font-semibold"><span>Exclude</span><span>Known</span></button>
                  <button id="copy-ids-button" class="control-btn stacked-text-button text-white font-semibold"><span>Copy</span><span>IDs</span></button>
                  <button id="copy-invites-button" class="control-btn stacked-text-button text-white font-semibold"><span>Copy</span><span>Invites</span></button>
-                 <!-- Developer Settings Button Container -->
                  <div id="developer-settings-button-container" class="developer-settings-button-container">
                     <button id="developer-settings-button" class="control-btn dev-button text-white font-semibold">
                         ⚙️ <span>Dev</span>
@@ -390,13 +368,11 @@
             </div>
         </div>
 
-        <!-- Status & Results -->
         <div class="flex-grow flex flex-col overflow-hidden">
             <div id="status-area" class="py-2 text-gray-400 text-center">
                 Click "Fetch" to start.
             </div>
             <ul id="results-list" class="flex-grow overflow-y-auto space-y-1 pr-2">
-                <!-- Results will be populated here -->
             </ul>
         </div>
     </div>
@@ -414,56 +390,27 @@
         const developerSettingsButtonContainer = document.getElementById('developer-settings-button-container');
         const globalErrorPopup = document.getElementById('global-error-popup');
 
-        // Fetch Options Modal elements
         const fetchOptionsModal = document.getElementById('fetch-options-modal');
         const closeFetchModalBtn = document.getElementById('close-fetch-modal-btn');
         const fetchActivitiesModalBtn = document.getElementById('fetch-activities-modal-btn');
         const fetchAppsModalBtn = document.getElementById('fetch-apps-modal-btn');
         const fetchAppsWarning = document.getElementById('fetch-apps-warning');
 
-        // Developer Settings Modal elements
         const devSettingsModal = document.getElementById('dev-settings-modal');
         const closeDevModalBtn = document.getElementById('close-dev-modal-btn');
         const autoCacheBtn = document.getElementById('auto-cache-btn');
         const fastAutoCacheBtn = document.getElementById('fast-auto-cache-btn');
         const toggleFastCacheBtn = document.getElementById('toggle-fast-cache-btn');
         const downloadCacheBtn = document.getElementById('download-cache-btn');
-        const showUnlookedUpBtn = document.getElementById('show-unlooked-up-btn'); // New button
+        const showUnlookedUpBtn = document.getElementById('show-unlooked-up-btn'); 
 
         let allFoundActivityIds = new Set();
         let allFoundAppIds = new Set();
         let currentVisibleIds = [];
-
         let knownIds = new Set();
         let isExcludingKnown = false;
-        let isShowingUnlookedUp = false; // New state variable
-        let userLookupCache = new Map(); // Caches lookup results (ID -> Data)
-
-        // API Cooldown State
-        let apiCooldownState = {
-            botghost: 0, // Timestamp when cooldown for BotGhost ends
-            deno: 0,     // Timestamp when cooldown for Deno ends
-            scnx: 0,     // Timestamp when cooldown for SCNX ends
-            scnxCounter: 0, // Counter for SCNX requests in a 60s window
-            scnxResetTimer: null // Timer to reset the SCNX counter
-        };
-
-        const API_TIMEOUTS = {
-            botghost: 10000,
-            scnx: 10000,
-            deno: 5000
-        };
-
-        const SCNX_RATE_LIMIT_DURATION = 60000; // 60 seconds
-        const SCNX_RATE_LIMIT_COUNT = 2; // 2 requests per 60 seconds
-
-        const GLOBAL_COOLDOWN_DURATION = 5000; // 5 seconds in milliseconds (for BotGhost)
-        const FAST_COOLDOWN_DURATION = 1000; // 1 second in milliseconds (for Deno)
-        const SCNX_COOLDOWN_DURATION = 30000; // 30 seconds in milliseconds
-
-        let canLookup = true; // Global flag for lookup cooldown for single lookups
-        let lookupCooldownEndTime = 0; // Timestamp when cooldown ends
-        let cooldownCountdownInterval = null; // To store the interval ID for countdown
+        let isShowingUnlookedUp = false; 
+        let userLookupCache = new Map(); 
 
         let fetchAppsDoubleCheckTimer = null;
         const FETCH_APPS_DOUBLE_CLICK_TIMEOUT = 3000;
@@ -472,54 +419,54 @@
         let autoCacheIndex = 0;
         let isAutoCaching = false;
         let isFastAutoCaching = false;
-        // isFastCacheDisabled: true means fast lookup will NOT check cache (bypass it)
-        //                   false means fast lookup WILL check cache (use it)
-        let isFastCacheDisabled = false; // Default: Fast lookup WILL check cache first
+        let isFastCacheDisabled = false; 
 
         const GITHUB_URL = "https://raw.githubusercontent.com/Delitefully/DiscordLists/master/activities.md";
-        const INITIAL_CACHE_URL = "https://raw.githubusercontent.com/Evil3D/Discord-API-Stuffs/refs/heads/main/Lookup_Cache.json";
+        const INITIAL_CACHE_URL = "Lookup_Cache.json";
         const CORS_PROXY = 'https://corsproxy.io/?';
+        const STAFF_BADGE_URL = 'https://cdn.discordapp.com/badge-icons/5e74e9b61934fc1f67c65515d1f7e60d.png';
 
-        // API Endpoints - Ordered by preference
+        // NEW API STRUCTURE: Ordered by Priority
         const LOOKUP_APIS = [
-            { name: "BotGhost", url: 'https://dashboard.botghost.com/api/public/tools/user_lookup/' },
-            { name: "Deno", url: 'https://discord-lookup.deno.dev/' },
-            { name: "SCNX", url: 'https://scnx.app/api/users/' }
+            { name: "Deno", url: 'https://discord-lookup.deno.dev/', method: 'GET', timeout: 5000, cooldown: 1000 },
+            { name: "VaultCord", url: 'https://api.vaultcord.com/webhooks/public-lookup/', method: 'GET', timeout: 5000, cooldown: 1000 },
+            { name: "NicheProwler", url: 'https://www.nicheprowler.com/api/discord/discord-id-lookup?id=', method: 'GET', timeout: 5000, cooldown: 5000 }, 
+            { name: "DiscordGate", url: 'https://discordgate.com/api/tools/lookup/applications/add', method: 'POST', timeout: 5000, cooldown: 2000 }
         ];
 
-        const STAFF_BADGE_URL = 'https://cdn.discordapp.com/badge-icons/5e74e9b61934fc1f67c65515d1f7e60d.png';
-        const FAST_AUTO_CACHE_INTERVAL = 500; // 500ms for fast auto-cache
+        // Track API ratelimits
+        let apiCooldowns = {
+            "Deno": 0,
+            "VaultCord": 0,
+            "NicheProwler": 0,
+            "DiscordGate": 0
+        };
 
-        // Constants for Fetch Applications (from Python script)
+        const GLOBAL_COOLDOWN_DURATION = 5000; 
+        const FAST_AUTO_CACHE_INTERVAL = 500; 
+
         const WAYBACK_API_BASE = "https://web.archive.org/cdx/search/cdx";
         const TARGET_URL_APP_INVITES = "https://discord.com/api/oauth2/authorize";
         const API_PARAMS_COMMON_APP_INVITES = "matchType=prefix&collapse=urlkey&output=json&fl=original,mimetype,timestamp,endtimestamp,groupcount,uniqcount&filter=!statuscode:[45]..";
         const API_PAGE_LIMIT_APP_INVITES = 10000;
         const REQUEST_TIMEOUT_APP_INVITES = 30000;
 
-        // --- Cache Initialization on Load ---
         async function initializeCache() {
             try {
-                const response = await fetch(CORS_PROXY + encodeURIComponent(INITIAL_CACHE_URL));
-                if (!response.ok) {
-                    console.warn(`Could not load initial cache from GitHub: HTTP status ${response.status}`);
-                    return;
-                }
+                const response = await fetch(encodeURIComponent(INITIAL_CACHE_URL));
+                if (!response.ok) return;
                 const cachedData = await response.json();
                 for (const id in cachedData) {
                     if (Object.hasOwnProperty.call(cachedData, id)) {
                         userLookupCache.set(id, cachedData[id]);
                     }
                 }
-                console.log(`Successfully loaded ${userLookupCache.size} entries from initial cache.`);
                 statusArea.textContent = `Loaded ${userLookupCache.size} cached IDs from GitHub.`;
             } catch (error) {
-                console.error('Error loading initial cache:', error);
-                statusArea.textContent = `Error loading initial cache: ${error.message}`;
+                console.error('Error loading cache:', error);
             }
         }
 
-        // --- Developer Mode Check ---
         function checkDevMode() {
             if (window.Dev === true || window.dev === true) {
                 developerSettingsButtonContainer.classList.add('visible');
@@ -528,16 +475,12 @@
             }
         }
 
-        // Check dev mode on load and periodically
         window.addEventListener('load', () => {
             initializeCache();
             checkDevMode();
-            // Initialize the fast cache disable button state and tooltip
             updateFastCacheToggleButtonState();
         });
         setInterval(checkDevMode, 1000);
-
-        // --- Main Data Fetching and Processing ---
 
         async function fetchActivityData() {
             setUiState('loading', '⏳ Fetching up to 40,000 activity records...');
@@ -551,7 +494,7 @@
                 const data = await response.json();
 
                 if (!data || data.length <= 1) {
-                    setUiState('idle', 'No activity results found for the given pattern.');
+                    setUiState('idle', 'No activity results found.');
                     return;
                 }
 
@@ -592,122 +535,75 @@
             try {
                 while (newlyFoundInvitesCount < limitCount) {
                     let waybackApiUrl = `${WAYBACK_API_BASE}?url=${encodedTargetUrl}&${API_PARAMS_COMMON_APP_INVITES}&limit=${API_PAGE_LIMIT_APP_INVITES}`;
-                    if (resumeKey) {
-                        waybackApiUrl += `&resumeKey=${resumeKey}`;
-                    }
+                    if (resumeKey) { waybackApiUrl += `&resumeKey=${resumeKey}`; }
 
                     const response = await fetch(CORS_PROXY + encodeURIComponent(waybackApiUrl), {
                         signal: AbortSignal.timeout(REQUEST_TIMEOUT_APP_INVITES)
                     });
 
-                    if (!response.ok) {
-                        throw new Error(`HTTP error! Status: ${response.status} for ${waybackApiUrl}`);
-                    }
+                    if (!response.ok) throw new Error(`HTTP error! Status: ${response.status}`);
                     const cdxData = await response.json();
 
                     resumeKey = response.headers.get('x-archive-wayback-cdx-remote-info');
-                    if (resumeKey) {
-                        resumeKey = resumeKey.split(';')[0].trim();
-                    }
+                    if (resumeKey) resumeKey = resumeKey.split(';')[0].trim();
 
-                    if (!cdxData || !Array.isArray(cdxData) || cdxData.length <= 1) {
-                        console.log("No more data or unexpected CDX format.");
-                        break;
-                    }
+                    if (!cdxData || !Array.isArray(cdxData) || cdxData.length <= 1) break;
 
                     const dataEntries = cdxData[0][0] === "original" ? cdxData : cdxData.slice(1);
-
-                    if (dataEntries.length === 0) {
-                        console.log("No entries found in this page.");
-                        break;
-                    }
+                    if (dataEntries.length === 0) break;
 
                     for (const entry of dataEntries) {
-                        if (newlyFoundInvitesCount >= limitCount) {
-                            break;
-                        }
+                        if (newlyFoundInvitesCount >= limitCount) break;
+                        if (!Array.isArray(entry) || entry.length < 1) continue;
 
-                        if (!Array.isArray(entry) || entry.length < 1) {
-                            continue;
-                        }
-
-                        const fullUrlRaw = entry[0];
-                        const fullUrlCleaned = fullUrlRaw.replace(/&amp%3B/g, "&");
-
+                        const fullUrlCleaned = entry[0].replace(/&amp%3B/g, "&");
                         const clientIdMatch = fullUrlCleaned.match(/client_id=(\d+)/);
-                        if (!clientIdMatch) {
-                            continue;
-                        }
+                        if (!clientIdMatch) continue;
 
                         const botId = clientIdMatch[1];
-
                         if (!allFoundAppIds.has(botId)) {
                              allFoundAppIds.add(botId);
                              newlyFoundInvitesCount++;
-                             console.log(`Found App ID: ${botId}`);
                              statusArea.textContent = `🔎 Found ${newlyFoundInvitesCount} application IDs...`;
                         }
                     }
-
-                    if (!resumeKey || newlyFoundInvitesCount >= limitCount) {
-                        break;
-                    }
+                    if (!resumeKey || newlyFoundInvitesCount >= limitCount) break;
                 }
                 updateAndDisplayResults();
                 setUiState('idle', `✅ Done! Found ${allFoundAppIds.size} unique application IDs.`);
             }
             catch (error) {
-                if (error.name === 'TimeoutError') {
-                    setUiState('error', `❌ Request to Wayback Machine timed out after ${REQUEST_TIMEOUT_APP_INVITES / 1000} seconds. Please try again.`);
-                } else {
-                    setUiState('error', `❌ Error fetching application data: ${error.message}.`);
-                }
-                console.error("Error in fetchDiscordInvitesJs:", error);
+                setUiState('error', `❌ Error fetching app data: ${error.message}.`);
             }
         }
-
 
         async function fetchKnownIds() {
             if (knownIds.size > 0) return true;
-
             setUiState('loading', 'Fetching known IDs from GitHub...');
-            const apiUrl = CORS_PROXY + encodeURIComponent(GITHUB_URL);
             try {
-                const response = await fetch(apiUrl);
-                if (!response.ok) throw new Error(`GitHub fetch failed: ${response.status}`);
+                const response = await fetch(CORS_PROXY + encodeURIComponent(GITHUB_URL));
+                if (!response.ok) throw new Error(`Fetch failed`);
                 const markdown = await response.text();
-
                 const idRegex = /^\|\s*[^|]*\s*\|\s*(\d{17,20})\s*\|/gm;
                 let match;
-                while ((match = idRegex.exec(markdown)) !== null) {
-                    knownIds.add(match[1]);
-                }
+                while ((match = idRegex.exec(markdown)) !== null) { knownIds.add(match[1]); }
                 setUiState('idle', `Loaded ${knownIds.size} known IDs. Filtering...`);
                 return true;
             } catch (error) {
-                setUiState('error', `❌ Error fetching known IDs: ${error.message}`);
+                setUiState('error', `❌ Error: ${error.message}`);
                 return false;
             }
         }
-
-        // --- UI and Display Logic ---
 
         function updateAndDisplayResults() {
             const combinedIds = new Set([...allFoundActivityIds, ...allFoundAppIds]);
             let filtered = Array.from(combinedIds).sort();
 
-            if (isExcludingKnown) {
-                filtered = filtered.filter(id => !knownIds.has(id));
-            }
-            
-            if (isShowingUnlookedUp) {
-                filtered = filtered.filter(id => !userLookupCache.has(id));
-            }
+            if (isExcludingKnown) filtered = filtered.filter(id => !knownIds.has(id));
+            if (isShowingUnlookedUp) filtered = filtered.filter(id => !userLookupCache.has(id));
 
             const searchQuery = searchBar.value.toLowerCase();
-            if (searchQuery) {
-                filtered = filtered.filter(id => id.includes(searchQuery));
-            }
+            if (searchQuery) filtered = filtered.filter(id => id.includes(searchQuery));
 
             currentVisibleIds = filtered;
             renderList(currentVisibleIds);
@@ -729,13 +625,13 @@
                     <div class="flex items-center justify-between">
                         <a href="https://discord.com/developers/applications/${id}" target="_blank" class="text-gray-300 hover:text-white hover:underline">${id}</a>
                         <div class="flex items-center gap-2">
-                            <button class="lookup-btn p-2 rounded-md hover:bg-gray-600" data-id="${id}" title="Lookup User/Bot">
+                            <button class="lookup-btn" data-id="${id}" title="Lookup User/Bot">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-circle" viewBox="0 0 16 16">
                                     <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"/>
                                     <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"/>
                                 </svg>
                             </button>
-                            <button class="copy-invite-btn p-2 rounded-md hover:bg-gray-600" data-id="${id}" title="Copy Invite Link">
+                            <button class="copy-invite-btn" data-id="${id}" title="Copy Invite Link">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16">
                                     <path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1.002 1.002 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4.018 4.018 0 0 1-.128-1.287z"/>
                                     <path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243L6.586 4.672z"/>
@@ -747,53 +643,35 @@
                 `;
                 fragment.appendChild(li);
 
-                // If data is in cache, display it immediately
                 if (userLookupCache.has(id)) {
-                    const cachedData = userLookupCache.get(id);
-                    const infoContainer = li.querySelector(`#lookup-info-${id}`);
-                    displayLookupInfo(cachedData, infoContainer);
+                    displayLookupInfo(userLookupCache.get(id), li.querySelector(`#lookup-info-${id}`));
                 }
             }
             resultsList.appendChild(fragment);
         }
 
         function setUiState(state, message) {
-            const elementsToDisable = [
-                fetchButton, fetchActivitiesModalBtn, fetchAppsModalBtn,
-                developerSettingsButton, autoCacheBtn, fastAutoCacheBtn,
-                toggleFastCacheBtn, downloadCacheBtn, showUnlookedUpBtn
-            ];
-
-            elementsToDisable.forEach(el => {
-                if (state === 'loading') {
-                    el.disabled = true;
-                    el.classList.add('opacity-50');
-                } else {
-                    el.disabled = false;
-                    el.classList.remove('opacity-50');
-                }
+            const els = [fetchButton, fetchActivitiesModalBtn, fetchAppsModalBtn, developerSettingsButton, autoCacheBtn, fastAutoCacheBtn, toggleFastCacheBtn, downloadCacheBtn, showUnlookedUpBtn];
+            els.forEach(el => {
+                if (state === 'loading') { el.disabled = true; el.classList.add('opacity-50'); }
+                else { el.disabled = false; el.classList.remove('opacity-50'); }
             });
-
             if(message) statusArea.textContent = message;
         }
 
-        // --- Clipboard and Event Handlers ---
-
         function copyToClipboard(text, buttonElement) {
-            // Using document.execCommand for better iFrame compatibility
             const textarea = document.createElement('textarea');
             textarea.value = text;
             document.body.appendChild(textarea);
             textarea.select();
             try {
                 const successful = document.execCommand('copy');
-                const msg = successful ? 'Copied!' : 'Failed to copy';
                 const originalContent = buttonElement.innerHTML;
-                buttonElement.innerHTML = msg;
+                // Swap the button contents out gracefully, fixed CSS prevents stretching issues
+                buttonElement.innerHTML = `<span class="text-xs font-bold px-1">Copied!</span>`;
                 setTimeout(() => { buttonElement.innerHTML = originalContent; }, 2000);
             } catch (err) {
                 console.error('Failed to copy:', err);
-                alert('Failed to copy to clipboard.');
             }
             document.body.removeChild(textarea);
         }
@@ -811,58 +689,30 @@
             updateAndDisplayResults();
         }
 
-        // Toggles the new "Show Unlooked-up IDs" filter
         function toggleShowUnlookedUp() {
             isShowingUnlookedUp = !isShowingUnlookedUp;
-            if (isShowingUnlookedUp) {
-                showUnlookedUpBtn.classList.add('exclude-btn-active');
-            } else {
-                showUnlookedUpBtn.classList.remove('exclude-btn-active');
-            }
+            if (isShowingUnlookedUp) showUnlookedUpBtn.classList.add('exclude-btn-active');
+            else showUnlookedUpBtn.classList.remove('exclude-btn-active');
             updateAndDisplayResults();
         }
 
         function displayLookupInfo(data, infoContainer) {
             infoContainer.classList.remove('hidden');
 
-            let avatarUrl;
-            let userNameDisplay;
-            let tagsHtml = '';
-
             const id = data.id;
-            const username = data.username || data.name;
-            const discriminator = data.discriminator === "0" ? null : data.discriminator;
+            const username = data.username || "Unknown";
+            const discriminator = data.discriminator === "0" || !data.discriminator ? null : data.discriminator;
             const global_name = data.global_name || null;
-            const avatar = data.avatar || data.avatarURL;
-            const isBot = typeof data.bot === 'boolean' ? data.bot : (data.flags ? (data.flags & (1 << 0)) : false);
+            const avatar = data.avatar;
+            const isBot = data.bot !== false; // Default to true for apps
             let publicFlags = data.public_flags || data.flags || 0;
-
-            if (Array.isArray(data.flags)) {
-                if (data.flags.includes("staff")) {
-                    publicFlags |= (1 << 18);
-                }
-            }
+            
+            let userNameDisplay = discriminator ? `${username}#${discriminator}` : (global_name || username);
+            let avatarUrl = avatar ? `https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=256` : `https://cdn.discordapp.com/embed/avatars/${(parseInt(id) >> 22) % 6}.png`;
+            let tagsHtml = '';
 
             const DISCORD_CERTIFIED_MODERATOR_FLAG = 1 << 18;
             const VERIFIED_BOT_FLAG = 1 << 16;
-
-            if (avatar) {
-                if (avatar.startsWith('http')) {
-                    avatarUrl = avatar.replace('?size=2048', '?size=256').replace('?size=4096', '?size=256');
-                } else {
-                    avatarUrl = `https://cdn.discordapp.com/avatars/${id}/${avatar}.png?size=256`;
-                }
-            } else {
-                const defaultAvatarNum = (parseInt(id) >> 22) % 6;
-                avatarUrl = `https://cdn.discordapp.com/embed/avatars/${defaultAvatarNum}.png`;
-            }
-
-            userNameDisplay = username;
-            if (discriminator) {
-                userNameDisplay += `#${discriminator}`;
-            } else if (global_name) {
-                userNameDisplay = global_name;
-            }
 
             if (isBot) {
                 if ((publicFlags & VERIFIED_BOT_FLAG) || publicFlags === 65536 || publicFlags === 65537) {
@@ -883,185 +733,122 @@
                 tagsHtml += `<img src="${STAFF_BADGE_URL}" alt="Staff" class="staff-badge" title="Discord Certified Moderator">`;
             }
 
-            infoContainer.innerHTML = `
-                <img src="${avatarUrl}" class="user-avatar" alt="User Avatar">
-                <span>${userNameDisplay}</span>
-                ${tagsHtml}
-            `;
+            infoContainer.innerHTML = `<img src="${avatarUrl}" class="user-avatar" alt="Avatar"><span>${userNameDisplay}</span>${tagsHtml}`;
 
             const parentLi = infoContainer.closest('.id-item');
-            const copyInviteBtn = parentLi ? parentLi.querySelector('.copy-invite-btn') : null;
-            if (copyInviteBtn) {
-                if (isBot) {
-                    copyInviteBtn.style.display = '';
-                } else {
-                    copyInviteBtn.style.display = 'none';
-                }
+            if (parentLi) {
+                const copyInviteBtn = parentLi.querySelector('.copy-invite-btn');
+                if (copyInviteBtn) copyInviteBtn.style.display = isBot ? '' : 'none';
             }
         }
 
-        function showGlobalErrorPopup(message, type = 'error') {
-            if (cooldownCountdownInterval) {
-                clearInterval(cooldownCountdownInterval);
+        // STANDARDIZES ALL API RESPONSES INTO DENO FORMAT
+        function normalizeData(sourceName, rawData, id) {
+            let normalized = {
+                id: id,
+                username: "Unknown",
+                discriminator: null,
+                avatar: null,
+                bot: true, 
+                public_flags: 0,
+                flags: 0,
+                global_name: null
+            };
+
+            if (sourceName === "Deno" || sourceName === "VaultCord") {
+                return Object.assign(normalized, rawData);
+            } else if (sourceName === "NicheProwler") {
+                if (!rawData.success || !rawData.data) throw new Error("NicheProwler missing data");
+                let d = rawData.data;
+                normalized.username = d.username || "Unknown";
+                normalized.discriminator = d.discriminator || null;
+                normalized.avatar = d.avatar || null;
+                normalized.bot = d.is_bot !== undefined ? d.is_bot : true;
+                normalized.flags = d.flags || 0;
+                normalized.public_flags = d.flags || 0;
+                normalized.global_name = d.global_name || null;
+                return normalized;
+            } else if (sourceName === "DiscordGate") {
+                if (!rawData.botData) throw new Error("DiscordGate missing botData");
+                let d = rawData.botData;
+                normalized.username = d.name || "Unknown";
+                normalized.avatar = d.icon || null;
+                normalized.flags = d.flags || 0;
+                normalized.public_flags = d.flags || 0;
+                return normalized;
             }
-
-            globalErrorPopup.classList.remove('ready', 'show');
-            globalErrorPopup.textContent = message;
-
-            if (type === 'error') {
-                globalErrorPopup.style.backgroundColor = '#b22222';
-                globalErrorPopup.classList.add('show');
-
-                cooldownCountdownInterval = setInterval(() => {
-                    const now = Date.now();
-                    const timeLeft = Math.ceil((lookupCooldownEndTime - now) / 1000);
-
-                    if (timeLeft > 0) {
-                        globalErrorPopup.textContent = `Lookup is on Cooldown, Please Wait ${timeLeft} Seconds`;
-                    } else {
-                        globalErrorPopup.classList.add('ready');
-                        globalErrorPopup.textContent = `Lookup is Ready!`;
-
-                        setTimeout(() => {
-                            globalErrorPopup.classList.remove('show');
-                            globalErrorPopup.classList.remove('ready');
-                        }, 1500);
-
-                        clearInterval(cooldownCountdownInterval);
-                        cooldownCountdownInterval = null;
-                    }
-                }, 100);
-            } else if (type === 'success') {
-                globalErrorPopup.style.backgroundColor = '#2d7d46';
-                globalErrorPopup.classList.add('show');
-                setTimeout(() => {
-                    globalErrorPopup.classList.remove('show');
-                }, 1500);
-            }
+            return normalized;
         }
 
-        // --- Multi-API Lookup Logic ---
-        async function lookupBot(id, infoContainer, useFastApi = false) {
-            const now = Date.now();
-            
-            // Check cache first if not explicitly bypassing it
+        // WATERFALL LOOKUP LOGIC
+        async function lookupBot(id, infoContainer) {
             if (!isFastCacheDisabled && userLookupCache.has(id)) {
                 displayLookupInfo(userLookupCache.get(id), infoContainer);
                 return true;
             }
 
-            infoContainer.innerHTML = 'Loading...';
+            infoContainer.innerHTML = '<span class="text-gray-400">Loading...</span>';
             infoContainer.classList.remove('hidden');
 
-            const apiConfig = [
-                { name: "BotGhost", url: 'https://dashboard.botghost.com/api/public/tools/user_lookup/', timeout: 10000, cooldown: GLOBAL_COOLDOWN_DURATION },
-                { name: "Deno", url: 'https://discord-lookup.deno.dev/', timeout: 5000, cooldown: FAST_COOLDOWN_DURATION },
-                { name: "SCNX", url: 'https://scnx.app/api/users/', timeout: 10000, cooldown: SCNX_COOLDOWN_DURATION }
-            ];
+            const now = Date.now();
+            let lastError = "All services failed or rate-limited.";
 
-            let lastError = "Could not fetch info from any service.";
-            let successfulLookup = false;
+            for (const api of LOOKUP_APIS) {
+                if (now < apiCooldowns[api.name]) continue; // Skip if on penalty cooldown
 
-            // Define which API to use first based on cooldown status
-            let apiToUse = null;
+                try {
+                    let fetchOptions = {
+                        signal: AbortSignal.timeout(api.timeout),
+                        headers: {}
+                    };
 
-            if (now > apiCooldownState.botghost) {
-                apiToUse = apiConfig.find(api => api.name === "BotGhost");
-            } else if (now > apiCooldownState.deno) {
-                apiToUse = apiConfig.find(api => api.name === "Deno");
-            } else if (now > apiCooldownState.scnx && apiCooldownState.scnxCounter < SCNX_RATE_LIMIT_COUNT) {
-                apiToUse = apiConfig.find(api => api.name === "SCNX");
-            }
-
-            if (!apiToUse) {
-                infoContainer.innerHTML = `<span class="text-red-400">Chill out bro, wait like a sec man</span>`;
-                return false;
-            }
-
-            try {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), apiToUse.timeout);
-
-                const response = await fetch(CORS_PROXY + encodeURIComponent(apiToUse.url + id), { signal: controller.signal });
-                clearTimeout(timeoutId);
-
-                if (response.status === 429) {
-                    // Handle rate limit specifically
-                    console.warn(`${apiToUse.name} hit rate limit.`);
-                    if (apiToUse.name === "SCNX") {
-                        apiCooldownState.scnx = now + SCNX_COOLDOWN_DURATION;
-                    } else if (apiToUse.name === "Deno") {
-                        apiCooldownState.deno = now + FAST_COOLDOWN_DURATION;
-                    } else { // BotGhost
-                        apiCooldownState.botghost = now + GLOBAL_COOLDOWN_DURATION;
+                    let targetUrl = api.url;
+                    if (api.method === 'POST') {
+                        fetchOptions.method = 'POST';
+                        fetchOptions.headers['Content-Type'] = 'application/json';
+                        if (api.name === 'DiscordGate') fetchOptions.body = JSON.stringify({ botId: id, fingerprint: "" });
+                    } else {
+                        targetUrl += id;
                     }
-                    // Recursively call lookupBot to try the next available API
-                    return lookupBot(id, infoContainer, useFastApi);
-                }
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! Status: ${response.status} from ${apiToUse.name}`);
-                }
-                const data = await response.json();
-
-                if (!data || !data.id) {
-                    throw new Error(`Invalid data received from ${apiToUse.name}.`);
-                }
-
-                userLookupCache.set(id, data);
-                displayLookupInfo(data, infoContainer);
-                successfulLookup = true;
-
-                // Update cooldown for the successfully used API
-                if (apiToUse.name === "SCNX") {
-                    apiCooldownState.scnxCounter++;
-                    if (!apiCooldownState.scnxResetTimer) {
-                        apiCooldownState.scnxResetTimer = setTimeout(() => {
-                            apiCooldownState.scnxCounter = 0;
-                            apiCooldownState.scnxResetTimer = null;
-                        }, SCNX_RATE_LIMIT_DURATION);
+                    if (api.name === 'VaultCord') {
+                        // Pass mock user-agent just in case it bypasses the proxy
+                        fetchOptions.headers['User-Agent'] = 'Mozilla/5.0'; 
                     }
-                } else if (apiToUse.name === "Deno") {
-                    apiCooldownState.deno = now + FAST_COOLDOWN_DURATION;
-                } else { // BotGhost
-                    apiCooldownState.botghost = now + GLOBAL_COOLDOWN_DURATION;
-                }
 
-            } catch (error) {
-                console.error(`Error fetching from ${apiToUse.name}:`, error);
-                lastError = `Error from ${apiToUse.name}: ${error.message}`;
+                    const response = await fetch(CORS_PROXY + encodeURIComponent(targetUrl), fetchOptions);
 
-                // Mark the API as on cooldown and try the next one
-                if (apiToUse.name === "SCNX") {
-                    apiCooldownState.scnx = now + SCNX_COOLDOWN_DURATION;
-                } else if (apiToUse.name === "Deno") {
-                    apiCooldownState.deno = now + FAST_COOLDOWN_DURATION;
-                } else { // BotGhost
-                    apiCooldownState.botghost = now + GLOBAL_COOLDOWN_DURATION;
+                    if (response.status === 429) {
+                        apiCooldowns[api.name] = now + (api.cooldown * 10); // Heavy penalty for hitting 429
+                        continue; 
+                    }
+                    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+
+                    const rawData = await response.json();
+                    const cleanData = normalizeData(api.name, rawData, id);
+
+                    userLookupCache.set(id, cleanData);
+                    displayLookupInfo(cleanData, infoContainer);
+                    return true;
+
+                } catch (err) {
+                    apiCooldowns[api.name] = now + api.cooldown; // Brief penalty on timeout/error
+                    lastError = `${api.name} failed.`;
                 }
-                // Recursively call lookupBot to try the next available API
-                return lookupBot(id, infoContainer, useFastApi);
             }
 
-            if (!successfulLookup) {
-                infoContainer.innerHTML = `<span class="text-red-400">${lastError}</span>`;
-            }
-            return successfulLookup;
+            infoContainer.innerHTML = `<span class="text-red-400">Failed to lookup</span>`;
+            return false;
         }
 
-        // --- Auto-Cache Functionality (Normal) ---
         async function toggleAutoCache() {
             if (isAutoCaching) {
                 stopAllAutoCaching();
                 statusArea.textContent = `Auto-cache stopped. Cached ${userLookupCache.size} IDs.`;
             } else if (isFastAutoCaching) {
                 alert("Fast auto-cache is currently running. Please stop it first.");
-            }
-            else {
-                if (currentVisibleIds.length === 0) {
-                    alert("No IDs loaded to auto-cache. Please fetch IDs first.");
-                    return;
-                }
+            } else {
+                if (currentVisibleIds.length === 0) return alert("No IDs loaded to auto-cache.");
                 isAutoCaching = true;
                 autoCacheBtn.textContent = 'Stop Auto-Cache';
                 autoCacheIndex = 0;
@@ -1071,36 +858,29 @@
                     if (autoCacheIndex < currentVisibleIds.length) {
                         const idToLookup = currentVisibleIds[autoCacheIndex];
                         const infoContainer = document.getElementById(`lookup-info-${idToLookup}`);
-
                         if (!userLookupCache.has(idToLookup)) {
                             statusArea.textContent = `Auto-caching: Looking up ${idToLookup} (${autoCacheIndex + 1}/${currentVisibleIds.length})...`;
                             await lookupBot(idToLookup, infoContainer);
                         } else {
-                            statusArea.textContent = `Auto-caching: ${idToLookup} already cached (${autoCacheIndex + 1}/${currentVisibleIds.length}).`;
                             displayLookupInfo(userLookupCache.get(idToLookup), infoContainer);
                         }
                         autoCacheIndex++;
                     } else {
                         stopAllAutoCaching();
-                        statusArea.textContent = `Auto-cache complete! All ${currentVisibleIds.length} IDs processed. Total cached: ${userLookupCache.size}.`;
+                        statusArea.textContent = `Auto-cache complete! Total cached: ${userLookupCache.size}.`;
                     }
                 }, GLOBAL_COOLDOWN_DURATION + 500);
             }
         }
 
-        // --- Auto-Cache Functionality (Fast) ---
         async function toggleFastAutoCache() {
             if (isFastAutoCaching) {
                 stopAllAutoCaching();
                 statusArea.textContent = `Fast auto-cache stopped. Cached ${userLookupCache.size} IDs.`;
             } else if (isAutoCaching) {
-                 alert("Normal auto-cache is currently running. Please stop it first.");
-            }
-            else {
-                if (currentVisibleIds.length === 0) {
-                    alert("No IDs loaded to auto-cache. Please fetch IDs first.");
-                    return;
-                }
+                 alert("Normal auto-cache is currently running.");
+            } else {
+                if (currentVisibleIds.length === 0) return alert("No IDs loaded to auto-cache.");
                 isFastAutoCaching = true;
                 fastAutoCacheBtn.textContent = 'Stop 1/500ms Lookup';
                 autoCacheIndex = 0;
@@ -1110,28 +890,24 @@
                     if (autoCacheIndex < currentVisibleIds.length) {
                         const idToLookup = currentVisibleIds[autoCacheIndex];
                         const infoContainer = document.getElementById(`lookup-info-${idToLookup}`);
-
                         if (isFastCacheDisabled || !userLookupCache.has(idToLookup)) {
                             statusArea.textContent = `Fast auto-caching: Looking up ${idToLookup} (${autoCacheIndex + 1}/${currentVisibleIds.length})...`;
-                            await lookupBot(idToLookup, infoContainer, true);
+                            await lookupBot(idToLookup, infoContainer);
                         } else {
-                            statusArea.textContent = `Fast auto-caching: ${idToLookup} already cached (${autoCacheIndex + 1}/${currentVisibleIds.length}).`;
                             displayLookupInfo(userLookupCache.get(idToLookup), infoContainer);
                         }
                         autoCacheIndex++;
                     } else {
                         stopAllAutoCaching();
-                        statusArea.textContent = `Fast auto-cache complete! All ${currentVisibleIds.length} IDs processed. Total cached: ${userLookupCache.size}.`;
+                        statusArea.textContent = `Fast auto-cache complete! Total cached: ${userLookupCache.size}.`;
                     }
                 }, FAST_AUTO_CACHE_INTERVAL);
             }
         }
 
         function stopAllAutoCaching() {
-            if (autoCacheInterval) {
-                clearInterval(autoCacheInterval);
-                autoCacheInterval = null;
-            }
+            if (autoCacheInterval) clearInterval(autoCacheInterval);
+            autoCacheInterval = null;
             isAutoCaching = false;
             isFastAutoCaching = false;
             autoCacheBtn.textContent = 'Start Auto-Cache';
@@ -1140,15 +916,11 @@
 
         function updateFastCacheToggleButtonState() {
             if (isFastCacheDisabled) {
-                // If isFastCacheDisabled is true, it means fast lookup will NOT use cache (bypassing it).
-                // So, the button should be green ("active" state for disabling cache)
                 toggleFastCacheBtn.classList.add('toggle-btn-active');
-                toggleFastCacheBtn.setAttribute('title', 'Fast lookup will bypass cache. Click to enable cache for fast lookup.');
+                toggleFastCacheBtn.setAttribute('title', 'Fast lookup will bypass cache.');
             } else {
-                // If isFastCacheDisabled is false, it means fast lookup WILL use cache.
-                // So, the button should be red ("inactive" state for disabling cache, meaning cache is used)
                 toggleFastCacheBtn.classList.remove('toggle-btn-active');
-                toggleFastCacheBtn.setAttribute('title', 'Fast lookup will check cache first. Click to disable cache for fast lookup.');
+                toggleFastCacheBtn.setAttribute('title', 'Fast lookup will check cache first.');
             }
         }
 
@@ -1157,22 +929,14 @@
             updateFastCacheToggleButtonState();
         }
 
-        // --- Download Cache Functionality ---
         function downloadCachedLookups() {
-            if (userLookupCache.size === 0) {
-                alert("No lookup data to download. Perform some lookups first!");
-                return;
-            }
-
+            if (userLookupCache.size === 0) return alert("No lookup data to download.");
             const dataToSave = {};
-            userLookupCache.forEach((value, key) => {
-                dataToSave[key] = value;
-            });
-
+            userLookupCache.forEach((value, key) => dataToSave[key] = value);
+            
             const jsonString = JSON.stringify(dataToSave, null, 2);
             const blob = new Blob([jsonString], { type: 'application/json' });
             const url = URL.createObjectURL(blob);
-
             const a = document.createElement('a');
             a.href = url;
             a.download = `discord_lookup_cache_${new Date().toISOString().split('T')[0]}.json`;
@@ -1180,54 +944,36 @@
             a.click();
             document.body.removeChild(a);
             URL.revokeObjectURL(url);
-
-            alert(`Downloaded ${userLookupCache.size} cached lookups to file!`);
         }
 
-        // --- Modal Control Functions ---
         function openFetchOptionsModal() {
             fetchOptionsModal.classList.remove('hidden');
             fetchAppsWarning.classList.add('hidden');
-            if (fetchAppsDoubleCheckTimer) {
-                clearTimeout(fetchAppsDoubleCheckTimer);
-                fetchAppsDoubleCheckTimer = null;
-            }
+            if (fetchAppsDoubleCheckTimer) clearTimeout(fetchAppsDoubleCheckTimer);
         }
 
         function closeFetchOptionsModal() {
             fetchOptionsModal.classList.add('hidden');
             fetchAppsWarning.classList.add('hidden');
-            if (fetchAppsDoubleCheckTimer) {
-                clearTimeout(fetchAppsDoubleCheckTimer);
-                fetchAppsDoubleCheckTimer = null;
-            }
+            if (fetchAppsDoubleCheckTimer) clearTimeout(fetchAppsDoubleCheckTimer);
         }
 
-        function openDevSettingsModal() {
-            devSettingsModal.classList.remove('hidden');
-        }
-
-        function closeDevSettingsModal() {
+        function openDevSettingsModal() { devSettingsModal.classList.remove('hidden'); }
+        function closeDevSettingsModal() { 
             devSettingsModal.classList.add('hidden');
-            stopAllAutoCaching(); // Stop auto-caching when modal closes
+            stopAllAutoCaching(); 
         }
 
-        // --- Event Listeners ---
         fetchButton.addEventListener('click', openFetchOptionsModal);
         closeFetchModalBtn.addEventListener('click', closeFetchOptionsModal);
         closeDevModalBtn.addEventListener('click', closeDevSettingsModal);
-
-        fetchActivitiesModalBtn.addEventListener('click', () => {
-            fetchActivityData();
-        });
-
+        fetchActivitiesModalBtn.addEventListener('click', fetchActivityData);
         fetchAppsModalBtn.addEventListener('click', () => {
             if (fetchAppsDoubleCheckTimer) {
                 clearTimeout(fetchAppsDoubleCheckTimer);
                 fetchAppsDoubleCheckTimer = null;
                 fetchAppsWarning.classList.add('hidden');
-                const userLimit = 2000;
-                fetchDiscordInvitesJs(userLimit);
+                fetchDiscordInvitesJs(2000);
             } else {
                 fetchAppsWarning.classList.remove('hidden');
                 fetchAppsDoubleCheckTimer = setTimeout(() => {
@@ -1242,8 +988,7 @@
         fastAutoCacheBtn.addEventListener('click', toggleFastAutoCache);
         toggleFastCacheBtn.addEventListener('click', toggleFastCacheDisable);
         downloadCacheBtn.addEventListener('click', downloadCachedLookups);
-        showUnlookedUpBtn.addEventListener('click', toggleShowUnlookedUp); // New listener
-
+        showUnlookedUpBtn.addEventListener('click', toggleShowUnlookedUp);
         searchBar.addEventListener('input', updateAndDisplayResults);
         excludeKnownButton.addEventListener('click', toggleExcludeKnown);
 
@@ -1253,10 +998,7 @@
         });
 
         copyInvitesButton.addEventListener('click', () => {
-            if (currentVisibleIds.length === 0) {
-                alert("No IDs available to generate invites for.");
-                return;
-            }
+            if (currentVisibleIds.length === 0) return alert("No IDs available.");
             const invites = currentVisibleIds.map(id => `https://discord.com/api/oauth2/authorize?client_id=${id}&scope=bot`).join('\n');
             copyToClipboard(invites, copyInvitesButton);
         });
@@ -1265,18 +1007,15 @@
             const copyInviteButton = e.target.closest('.copy-invite-btn');
             if (copyInviteButton) {
                 const id = copyInviteButton.dataset.id;
-                const inviteLink = `https://discord.com/api/oauth2/authorize?client_id=${id}&scope=bot`;
-                copyToClipboard(inviteLink, copyInviteButton);
+                copyToClipboard(`https://discord.com/api/oauth2/authorize?client_id=${id}&scope=bot`, copyInviteButton);
             }
 
             const lookupButton = e.target.closest('.lookup-btn');
             if (lookupButton) {
                 const id = lookupButton.dataset.id;
-                const infoContainer = document.getElementById(`lookup-info-${id}`);
-                lookupBot(id, infoContainer); // No fast lookup for manual clicks
+                lookupBot(id, document.getElementById(`lookup-info-${id}`));
             }
         });
-
     </script>
 </body>
 </html>
